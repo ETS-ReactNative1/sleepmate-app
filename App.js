@@ -1,10 +1,12 @@
-import 'react-native-gesture-handler'
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
 import { NavigationContainer, DarkTheme } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import Home from './screens/Home'
 import Awake from './screens/Awake'
+import Roomies from './screens/Roomies'
+import Stats from './screens/Stats'
+import Notifs from './screens/Notifs'
+import Profile from './screens/Profile'
 
 const Stack = createStackNavigator()
 
@@ -20,15 +22,23 @@ export default function App() {
           name='Awake'
           component={Awake}
         />
+        <Stack.Screen
+          name='Roomies'
+          component={Roomies}
+        />
+        <Stack.Screen
+          name='Stats'
+          component={Stats}
+        />
+        <Stack.Screen
+          name='Notifs'
+          component={Notifs}
+        />
+        <Stack.Screen
+          name='Profile'
+          component={Profile}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-})

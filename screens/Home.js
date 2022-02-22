@@ -1,5 +1,6 @@
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { Text, View } from 'react-native'
+import { styles } from '../components/Styles'
 import Navbar from '../components/Navbar'
 import SolidButton from '../components/SolidButton'
 
@@ -20,23 +21,3 @@ const Home = ({ navigation }) => {
 }
 
 export default Home
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  title: {
-    fontSize: 30,
-    fontWeight: 'bold',
-    letterSpacing: 0.25,
-    color: '#f7f7f7',
-    marginVertical: 36
-  },
-  bottom: {
-    flex: 1,
-    justifyContent: 'flex-end',
-    marginBottom: 36
-  }
-})

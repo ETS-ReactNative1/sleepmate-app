@@ -1,5 +1,6 @@
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
+import { styles } from '../components/Styles'
 import SolidButton from '../components/SolidButton'
 
 const Awake = ({ navigation }) => {
@@ -17,24 +18,3 @@ const Awake = ({ navigation }) => {
 }
 
 export default Awake
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center'
-  },
-  time: {
-    fontSize: 48,
-    fontWeight: 'bold',
-    letterSpacing: 0.25,
-    color: '#f7f7f7',
-    marginTop: 36,
-    marginBottom: 5
-  },
-  date: {
-    fontSize: 20,
-    letterSpacing: 0.25,
-    color: '#f7f7f7',
-    marginBottom: 36
-  }
-})

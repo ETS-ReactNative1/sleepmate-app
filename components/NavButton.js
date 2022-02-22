@@ -1,10 +1,12 @@
 import React from 'react'
 import { StyleSheet, Text, Image, Pressable } from 'react-native'
+import { useNavigation } from '@react-navigation/native'
 
 const NavButton = (props) => {
-  const { onPress, title, image } = props
+  const { screenName, title, image } = props
+  const navigation = useNavigation()
   return (
-    <Pressable style={styles.button} onPress={onPress}>
+    <Pressable style={styles.button} onPress={() => navigation.navigate(screenName)}>
       <Image style={styles.image} source={image} />
       <Text style={styles.text}>{title}</Text>
     </Pressable >
@@ -22,8 +24,9 @@ const styles = StyleSheet.create({
     marginHorizontal: 5,
   },
   text: {
-    fontSize: 12,
+    fontSize: 10,
     letterSpacing: 0.25,
+    fontWeight: 600,
     color: '#f7f7f7',
   },
   image: {
