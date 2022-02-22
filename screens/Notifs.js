@@ -1,12 +1,13 @@
 import React from 'react'
-import { Text, View } from 'react-native'
+import { View } from 'react-native'
 import { styles } from '../components/Styles'
 import Navbar from '../components/Navbar'
+import Header from '../components/Header'
 
 const Notifs = () => {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Notifs</Text>
+      <Header pageName='NOTIFICATIONS' previousPage='Home' />
       <View style={styles.bottom}>
         <Navbar />
       </View>

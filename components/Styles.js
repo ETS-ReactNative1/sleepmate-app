@@ -8,9 +8,17 @@ const styles = StyleSheet.create({
     backgroundColor: '#003366'
   },
   navContainer: {
+    display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center'
+  },
+  headerContainer: {
+    margin: 9,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    width: '100%'
   },
   title: {
     fontSize: 30,
@@ -19,10 +27,16 @@ const styles = StyleSheet.create({
     color: '#f7f7f7',
     marginVertical: 36
   },
+  smallTitle: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    letterSpacing: 3,
+    color: '#f7f7f7',
+  },
   bottom: {
     flex: 1,
     justifyContent: 'flex-end',
-    marginBottom: 36
+    marginBottom: 18
   },
   time: {
     fontSize: 48,
@@ -57,4 +71,17 @@ const solidButtons = StyleSheet.create({
   }
 })
 
-export { styles, solidButtons }
+const iconButtons = StyleSheet.create({
+  button: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingVertical: 9,
+    paddingHorizontal: 18
+  },
+  image: {
+    width: 50,
+    height: 50
+  }
+})
+
+export { styles, solidButtons, iconButtons }
