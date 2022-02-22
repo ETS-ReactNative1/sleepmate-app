@@ -39,4 +39,22 @@ const styles = StyleSheet.create({
   }
 })
 
-export { styles }
+const solidButtons = StyleSheet.create({
+  button: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingVertical: 15,
+    paddingHorizontal: 60,
+    borderRadius: 10,
+    elevation: 3,
+    backgroundColor: '#90acc8',
+  },
+  text: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    letterSpacing: 0.25,
+    color: '#f7f7f7',
+  }
+})
+
+export { styles, solidButtons }

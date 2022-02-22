@@ -1,9 +1,9 @@
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { Text, View } from 'react-native'
 import { styles } from '../components/Styles'
 import Navbar from '../components/Navbar'
 
-const Notifs = ({ navigation }) => {
+const Notifs = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Notifs</Text>

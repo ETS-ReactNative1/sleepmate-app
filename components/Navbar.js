@@ -1,9 +1,9 @@
 import React from 'react'
-import { StyleSheet, Text, View, Pressable } from 'react-native'
+import { View } from 'react-native'
 import { styles } from '../components/Styles'
 import NavButton from './NavButton'
 
-const Navbar = ({ navigation }) => {
+const Navbar = () => {
   return (
     <View style={styles.navContainer}>
       <NavButton

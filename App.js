@@ -17,26 +17,32 @@ export default function App() {
         <Stack.Screen
           name='Home'
           component={Home}
+          options={{ headerShown: false }}
         />
         <Stack.Screen
           name='Awake'
           component={Awake}
+          options={{ headerShown: false }}
         />
         <Stack.Screen
           name='Roomies'
           component={Roomies}
+          options={{ headerShown: false }}
         />
         <Stack.Screen
           name='Stats'
           component={Stats}
+          options={{ headerShown: false }}
         />
         <Stack.Screen
           name='Notifs'
           component={Notifs}
+          options={{ headerShown: false }}
         />
         <Stack.Screen
           name='Profile'
           component={Profile}
+          options={{ headerShown: false }}
         />
       </Stack.Navigator>
     </NavigationContainer>
