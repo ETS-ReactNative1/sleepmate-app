@@ -8,9 +8,6 @@ const Stats = () => {
   return (
     <View style={styles.container}>
       <Header pageName='THURS FEB 10-11' previousPage='Home' />
-      <View style={styles.bottom}>
-        <Navbar />
-      </View>
     </View>
   )
 }

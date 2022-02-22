@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { View } from 'react-native'
 import { styles } from '../components/Styles'
 import NavButton from './NavButton'
 
 const Navbar = () => {
+  const [active, setActive] = useState(false)
   return (
     <View style={styles.navContainer}>
       <NavButton

@@ -1,7 +1,6 @@
 import React from 'react'
 import { Text, View } from 'react-native'
 import { styles } from '../components/Styles'
-import Navbar from '../components/Navbar'
 import SolidButton from '../components/SolidButton'
 
 const Home = ({ navigation }) => {
@@ -11,11 +10,8 @@ const Home = ({ navigation }) => {
       <SolidButton
         style={styles.button}
         title='Sleep'
-        onPress={() => navigation.navigate('Awake')}
+        onPress={() => { }}
       />
-      <View style={styles.bottom}>
-        <Navbar />
-      </View>
     </View>
   )
 }

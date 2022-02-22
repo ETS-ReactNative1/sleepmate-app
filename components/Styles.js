@@ -4,7 +4,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center',
     backgroundColor: '#003366'
   },
   navContainer: {
@@ -32,11 +31,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     letterSpacing: 3,
     color: '#f7f7f7',
-  },
-  bottom: {
-    flex: 1,
-    justifyContent: 'flex-end',
-    marginBottom: 18
   },
   time: {
     fontSize: 48,
