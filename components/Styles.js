@@ -37,7 +37,8 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     letterSpacing: 0.25,
     color: '#f7f7f7',
-    marginBottom: 5
+    marginTop: 36,
+    marginBottom: 9
   },
   date: {
     fontSize: 20,

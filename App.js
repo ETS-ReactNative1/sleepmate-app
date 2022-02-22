@@ -1,5 +1,6 @@
 import React from 'react'
 import { NavigationContainer, DarkTheme } from '@react-navigation/native'
+import { createStackNavigator } from '@react-navigation/stack'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { Ionicons } from '@expo/vector-icons'
 import Home from './screens/Home'
@@ -7,6 +8,58 @@ import Roomies from './screens/Roomies'
 import Stats from './screens/Stats'
 import Notifs from './screens/Notifs'
 import Profile from './screens/Profile'
+import Awake from './screens/Awake'
+
+const RoomiesStack = createStackNavigator()
+
+function RoomiesStackScreen() {
+  return (
+    <RoomiesStack.Navigator>
+      <RoomiesStack.Screen name='Roomies' component={Roomies} options={{ headerShown: false }} />
+    </RoomiesStack.Navigator>
+  )
+}
+
+const StatsStack = createStackNavigator()
+
+function StatsStackScreen() {
+  return (
+    <StatsStack.Navigator>
+      <StatsStack.Screen name='Stats' component={Stats} options={{ headerShown: false }} />
+    </StatsStack.Navigator>
+  )
+}
+
+const HomeStack = createStackNavigator()
+
+function HomeStackScreen() {
+  return (
+    <HomeStack.Navigator>
+      <HomeStack.Screen name='Home' component={Home} options={{ headerShown: false }} />
+      <HomeStack.Screen name='Awake' component={Awake} options={{ headerShown: false }} />
+    </HomeStack.Navigator>
+  )
+}
+
+const NotifsStack = createStackNavigator()
+
+function NotifsStackScreen() {
+  return (
+    <NotifsStack.Navigator>
+      <NotifsStack.Screen name='Notifs' component={Notifs} options={{ headerShown: false }} />
+    </NotifsStack.Navigator>
+  )
+}
+
+const ProfileStack = createStackNavigator()
+
+function ProfileStackScreen() {
+  return (
+    <ProfileStack.Navigator>
+      <ProfileStack.Screen name='Profile' component={Profile} options={{ headerShown: false }} />
+    </ProfileStack.Navigator>
+  )
+}
 
 const Tab = createBottomTabNavigator()
 
@@ -17,7 +70,7 @@ export default function App() {
         initialRouteName='Home'
         screenOptions={({ route }) => ({
           tabBarStyle: {
-            height: 72,
+            height: 84,
             backgroundColor: '#003366',
             borderTopWidth: 0,
           },
@@ -49,27 +102,27 @@ export default function App() {
       >
         <Tab.Screen
           name="Roomies"
-          component={Roomies}
+          component={RoomiesStackScreen}
           options={{ headerShown: false }}
         />
         <Tab.Screen
           name="Stats"
-          component={Stats}
+          component={StatsStackScreen}
           options={{ headerShown: false }}
         />
         <Tab.Screen
           name="Home"
-          component={Home}
+          component={HomeStackScreen}
           options={{ headerShown: false }}
         />
         <Tab.Screen
           name="Notifs"
-          component={Notifs}
+          component={NotifsStackScreen}
           options={{ headerShown: false }}
         />
         <Tab.Screen
           name="Profile"
-          component={Profile}
+          component={ProfileStackScreen}
           options={{ headerShown: false }}
         />
       </Tab.Navigator>

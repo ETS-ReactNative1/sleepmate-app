@@ -3,17 +3,18 @@ import { Text, View } from 'react-native'
 import { styles } from '../components/Styles'
 import SolidButton from '../components/SolidButton'
 
-const Home = ({ navigation }) => {
+const Awake = ({ navigation }) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Welcome to Sleepmate</Text>
+      <Text style={styles.time}>8:00 AM</Text>
+      <Text style={styles.date}>Tuesday, February 22</Text>
       <SolidButton
         style={styles.button}
-        title='Sleep'
-        onPress={() => navigation.navigate('Awake')}
+        title='Wake Up'
+        onPress={() => navigation.navigate('Home')}
       />
     </View>
   )
 }
 
-export default Home
+export default Awake
