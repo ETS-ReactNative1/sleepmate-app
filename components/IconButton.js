@@ -1,12 +1,13 @@
 import React from 'react'
-import { Image, Pressable } from 'react-native'
+import { Pressable } from 'react-native'
 import { iconButtons } from './Styles'
+import { Ionicons } from '@expo/vector-icons'
 
 const IconButton = (props) => {
-  const { image, onPress } = props
+  const { iconName, onPress } = props
   return (
     <Pressable style={iconButtons.button} onPress={onPress}>
-      <Image style={iconButtons.image} source={image} />
+      <Ionicons name={iconName} size={36} color="#f7f7f7" />
     </Pressable>
   )
 }

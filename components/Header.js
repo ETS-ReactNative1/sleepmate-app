@@ -10,12 +10,12 @@ const Header = (props) => {
   return (
     <View style={styles.headerContainer}>
       <IconButton
-        image={require('../icons/caret-circle-left-light.png')}
+        iconName='chevron-back-circle-outline'
         onPress={() => navigation.navigate(previousPage)}
       />
       <Text style={styles.smallTitle}>{pageName}</Text>
       <IconButton
-        image={require('../icons/plus-circle-light.png')}
+        iconName='add-circle-outline'
       />
     </View>
   )

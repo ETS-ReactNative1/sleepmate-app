@@ -7,7 +7,7 @@ const NavButton = (props) => {
   const navigation = useNavigation()
   return (
     <Pressable style={styles.button} onPress={() => navigation.navigate(screenName)}>
-      <Image style={styles.image} source={image} />
+      <ion-icon name="add-circle-outline"></ion-icon>
       <Text style={styles.text}>{title}</Text>
     </Pressable >
   )
