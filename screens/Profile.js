@@ -1,7 +1,10 @@
 import React from 'react'
+import { Text } from 'react-native'
+import { LinearGradient } from 'expo-linear-gradient'
 import { styles } from '../components/Styles'
 import Header from '../components/Header'
-import { LinearGradient } from 'expo-linear-gradient'
+import BorderedPic from '../components/BorderedPic'
+import SolidButton from '../components/SolidButton'
 
 const Profile = () => {
   return (
@@ -14,6 +17,13 @@ const Profile = () => {
         leftIcon='chevron-back-circle-outline'
         leftPage='Home'
       />
+      <BorderedPic image={require('../images/tristan.png')} />
+      <Text style={styles.title}>Tristan W.</Text>
+      <SolidButton
+        style={styles.button}
+        title='Edit Preferences'
+      />
+
     </LinearGradient>
   )
 }

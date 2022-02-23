@@ -114,4 +114,14 @@ const iconButtons = StyleSheet.create({
   }
 })
 
-export { styles, solidButtons, iconButtons }
+const borderedPics = StyleSheet.create({
+  image: {
+    borderWidth: 2,
+    borderRadius: 10,
+    borderColor: '#f7f7f7',
+    width: 150,
+    height: 150
+  }
+})
+
+export { styles, solidButtons, iconButtons, borderedPics }
