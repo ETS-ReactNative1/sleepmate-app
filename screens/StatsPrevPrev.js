@@ -5,16 +5,16 @@ import Header from '../components/Header'
 import { LinearGradient } from 'expo-linear-gradient'
 import { LineChart } from 'react-native-chart-kit'
 
-const Stats = () => {
+const StatsPrevPrev = () => {
   return (
     <LinearGradient
       colors={['rgba(0, 51, 102, 1)', 'rgba(41, 43, 44, 1)']}
       style={styles.container}
     >
       <Header
-        pageName='THURS FEB 10-11'
-        leftIcon='chevron-back-outline'
-        leftPage='StatsPrev'
+        pageName='TUES FEB 8-9'
+        rightIcon='chevron-forward-outline'
+        rightPage='StatsPrev'
       />
       <Text style={styles.subtitle}>Sleep Quality</Text>
       <View style={styles.chartContainer}>
@@ -47,11 +47,11 @@ const Stats = () => {
           height={200}
           yAxisInterval={1} // optional, defaults to 1
           chartConfig={{
-            backgroundColor: "rgba(247, 247, 247, 0)",
-            backgroundGradientFrom: "rgba(247, 247, 247, 0)",
-            backgroundGradientTo: "rgba(247, 247, 247, 0)",
-            color: (opacity = 0) => `rgba(247, 247, 247, ${opacity})`,
-            labelColor: (opacity = 0) => `rgba(247, 247, 247, ${opacity})`,
+            backgroundColor: "rgba(247, 247, 247, 0.15)",
+            backgroundGradientFrom: "rgba(247, 247, 247, 0.15)",
+            backgroundGradientTo: "rgba(247, 247, 247, 0.15)",
+            color: (opacity = 1) => `rgba(247, 247, 247, ${opacity})`,
+            labelColor: (opacity = 1) => `rgba(247, 247, 247, ${opacity})`,
             style: {
               borderRadius: 10
             },
@@ -102,11 +102,11 @@ const Stats = () => {
           height={200}
           yAxisInterval={1} // optional, defaults to 1
           chartConfig={{
-            backgroundColor: "rgba(0, 0, 0, 0)",
-            backgroundGradientFrom: "rgba(0, 0, 0, 0)",
-            backgroundGradientTo: "rgba(0, 0, 0, 0)",
-            color: (opacity = 0) => `rgba(247, 247, 247, ${opacity})`,
-            labelColor: (opacity = 0) => `rgba(247, 247, 247, ${opacity})`,
+            backgroundColor: "rgba(247, 247, 247, 0.15)",
+            backgroundGradientFrom: "rgba(247, 247, 247, 0.15)",
+            backgroundGradientTo: "rgba(247, 247, 247, 0.15)",
+            color: (opacity = 1) => `rgba(247, 247, 247, ${opacity})`,
+            labelColor: (opacity = 1) => `rgba(247, 247, 247, ${opacity})`,
             style: {
               borderRadius: 10
             },
@@ -130,4 +130,4 @@ const Stats = () => {
   )
 }
 
-export default Stats
+export default StatsPrevPrev

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text, View, Animated } from 'react-native'
+import { Text } from 'react-native'
 import { styles } from '../components/Styles'
 import SolidButton from '../components/SolidButton'
 import { LinearGradient } from 'expo-linear-gradient'

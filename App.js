@@ -6,6 +6,8 @@ import { Ionicons } from '@expo/vector-icons'
 import Home from './screens/Home'
 import Roomies from './screens/Roomies'
 import Stats from './screens/Stats'
+import StatsPrev from './screens/StatsPrev'
+import StatsPrevPrev from './screens/StatsPrevPrev'
 import Notifs from './screens/Notifs'
 import Profile from './screens/Profile'
 import Awake from './screens/Awake'
@@ -26,6 +28,8 @@ function StatsStackScreen() {
   return (
     <StatsStack.Navigator>
       <StatsStack.Screen name='Stats' component={Stats} options={{ headerShown: false }} />
+      <StatsStack.Screen name='StatsPrev' component={StatsPrev} options={{ headerShown: false }} />
+      <StatsStack.Screen name='StatsPrevPrev' component={StatsPrevPrev} options={{ headerShown: false }} />
     </StatsStack.Navigator>
   )
 }
@@ -96,6 +100,7 @@ export default function App() {
           tabBarLabelStyle: {
             fontWeight: 600,
             fontSize: 12,
+            fontFamily: 'Lato',
             marginBottom: 18
           }
         })}

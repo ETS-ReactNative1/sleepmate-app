@@ -19,9 +19,30 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     width: '100%'
   },
+  chartContainer: {
+    display: 'flex',
+    flexDirection: 'row',
+  },
+  chartLabelContainer: {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-around',
+    alignItems: 'left',
+    width: 52,
+    position: 'absolute'
+  },
+  chartLabelText: {
+    marginLeft: 10,
+    marginVertical: 24,
+    fontFamily: 'Lato',
+    fontWeight: 600,
+    color: '#f7f7f7',
+    fontSize: 12
+  },
   title: {
     fontSize: 30,
     fontWeight: 'bold',
+    fontFamily: 'Lato',
     letterSpacing: 0.25,
     color: '#f7f7f7',
     marginVertical: 36
@@ -31,6 +52,15 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     letterSpacing: 3,
     color: '#f7f7f7',
+    fontFamily: 'Lato',
+  },
+  subtitle: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    letterSpacing: 0.5,
+    color: '#f7f7f7',
+    fontFamily: 'Lato',
+    marginTop: 18
   },
   time: {
     fontSize: 48,
@@ -38,13 +68,15 @@ const styles = StyleSheet.create({
     letterSpacing: 0.25,
     color: '#f7f7f7',
     marginTop: 36,
-    marginBottom: 9
+    marginBottom: 9,
+    fontFamily: 'Lato',
   },
   date: {
     fontSize: 20,
     letterSpacing: 0.25,
     color: '#f7f7f7',
-    marginBottom: 36
+    marginBottom: 36,
+    fontFamily: 'Lato',
   }
 })
 
@@ -63,6 +95,7 @@ const solidButtons = StyleSheet.create({
     fontWeight: 'bold',
     letterSpacing: 0.25,
     color: '#f7f7f7',
+    fontFamily: 'Lato',
   }
 })
 
@@ -72,7 +105,8 @@ const iconButtons = StyleSheet.create({
     justifyContent: 'center',
     paddingVertical: 9,
     paddingHorizontal: 18,
-    width: 72
+    width: 72,
+    fontFamily: 'Lato',
   },
   image: {
     width: 50,
