@@ -71,7 +71,8 @@ const iconButtons = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     paddingVertical: 9,
-    paddingHorizontal: 18
+    paddingHorizontal: 18,
+    width: 72
   },
   image: {
     width: 50,

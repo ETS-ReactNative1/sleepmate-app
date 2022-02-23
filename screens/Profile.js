@@ -9,7 +9,11 @@ const Profile = () => {
       colors={['rgba(0, 51, 102, 1)', 'rgba(41, 43, 44, 1)']}
       style={styles.container}
     >
-      <Header pageName='PROFILE' previousPage='Home' />
+      <Header
+        pageName='PROFILE'
+        leftIcon='chevron-back-circle-outline'
+        leftPage='Home'
+      />
     </LinearGradient>
   )
 }

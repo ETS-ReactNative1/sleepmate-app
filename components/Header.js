@@ -5,17 +5,18 @@ import IconButton from './IconButton'
 import { useNavigation } from '@react-navigation/native'
 
 const Header = (props) => {
-  const { pageName, previousPage } = props
+  const { pageName, leftIcon, rightIcon, leftPage, rightPage, leftOpacity, rightOpacity } = props
   const navigation = useNavigation()
   return (
     <View style={styles.headerContainer}>
       <IconButton
-        iconName='chevron-back-circle-outline'
-        onPress={() => navigation.navigate(previousPage)}
+        iconName={leftIcon}
+        onPress={() => navigation.navigate(leftPage)}
       />
       <Text style={styles.smallTitle}>{pageName}</Text>
       <IconButton
-        iconName='add-circle-outline'
+        iconName={rightIcon}
+        onPress={() => navigation.navigate(rightPage)}
       />
     </View>
   )
