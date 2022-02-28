@@ -74,7 +74,7 @@ export default function App() {
         initialRouteName='Home'
         screenOptions={({ route }) => ({
           tabBarStyle: {
-            height: 84,
+            height: 110,
             backgroundColor: '#292b2c',
             borderTopWidth: 0,
           },
@@ -98,9 +98,7 @@ export default function App() {
           tabBarActiveTintColor: '#90acc8',
           tabBarInactiveTintColor: '#f7f7f7',
           tabBarLabelStyle: {
-            fontWeight: 600,
             fontSize: 12,
-            fontFamily: 'Lato',
             marginBottom: 18
           }
         })}

@@ -59,8 +59,6 @@ const Stats = () => {
               r: "0"
             },
             propsForLabels: {
-              fontFamily: 'Lato',
-              fontWeight: 600,
               fontSize: 12
             }
           }}
@@ -114,8 +112,6 @@ const Stats = () => {
               r: "0"
             },
             propsForLabels: {
-              fontFamily: 'Lato',
-              fontWeight: 600,
               fontSize: 12
             }
           }}

@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   headerContainer: {
-    margin: 9,
+    margin: 32,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
@@ -27,56 +27,49 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-around',
-    alignItems: 'left',
+    alignItems: 'center',
     width: 52,
     position: 'absolute'
   },
   chartLabelText: {
     marginLeft: 10,
     marginVertical: 24,
-    fontFamily: 'Lato',
-    fontWeight: 600,
     color: '#f7f7f7',
     fontSize: 12
   },
   title: {
-    fontSize: 30,
-    fontWeight: 'bold',
-    fontFamily: 'Lato',
+    fontSize: 24,
     letterSpacing: 0.25,
     color: '#f7f7f7',
-    marginVertical: 36
+    marginVertical: 48,
+    fontWeight: '600'
   },
   smallTitle: {
-    fontSize: 20,
-    fontWeight: 'bold',
+    fontSize: 18,
     letterSpacing: 3,
     color: '#f7f7f7',
-    fontFamily: 'Lato',
+    fontWeight: '600'
   },
   subtitle: {
     fontSize: 16,
-    fontWeight: 'bold',
     letterSpacing: 0.5,
     color: '#f7f7f7',
-    fontFamily: 'Lato',
     marginTop: 18
   },
   time: {
     fontSize: 48,
-    fontWeight: 'bold',
     letterSpacing: 0.25,
     color: '#f7f7f7',
-    marginTop: 36,
+    marginTop: 48,
     marginBottom: 9,
-    fontFamily: 'Lato',
+    fontWeight: '600'
   },
   date: {
     fontSize: 20,
     letterSpacing: 0.25,
     color: '#f7f7f7',
     marginBottom: 36,
-    fontFamily: 'Lato',
+    fontWeight: '600'
   }
 })
 
@@ -92,10 +85,9 @@ const solidButtons = StyleSheet.create({
   },
   text: {
     fontSize: 20,
-    fontWeight: 'bold',
     letterSpacing: 0.25,
     color: '#f7f7f7',
-    fontFamily: 'Lato',
+    fontWeight: '600'
   }
 })
 
@@ -106,7 +98,6 @@ const iconButtons = StyleSheet.create({
     paddingVertical: 9,
     paddingHorizontal: 18,
     width: 72,
-    fontFamily: 'Lato',
   },
   image: {
     width: 50,
