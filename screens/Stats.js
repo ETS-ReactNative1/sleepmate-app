@@ -12,7 +12,7 @@ const Stats = () => {
       style={styles.container}
     >
       <Header
-        pageName='THURS FEB 10-11'
+        pageName='THU FEB 10-11'
         leftIcon='chevron-back-outline'
         leftPage='StatsPrev'
       />
