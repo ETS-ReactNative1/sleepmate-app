@@ -3,6 +3,7 @@ import { Text } from 'react-native'
 import { styles } from '../components/Styles'
 import SolidButton from '../components/SolidButton'
 import { LinearGradient } from 'expo-linear-gradient'
+import FillButton from '../components/FillButton'
 
 const Home = ({ navigation }) => {
   return (
@@ -11,10 +12,9 @@ const Home = ({ navigation }) => {
       style={styles.container}
     >
       <Text style={styles.title}>Welcome to Sleepmate</Text>
-      <SolidButton
-        style={styles.button}
-        title='Sleep'
-        onPress={() => navigation.navigate('Awake')}
+      <FillButton
+        buttonText='Sleep'
+        onFilled={() => navigation.navigate('Awake')}
       />
     </LinearGradient>
   )

@@ -91,6 +91,12 @@ const solidButtons = StyleSheet.create({
   }
 })
 
+const fillButtons = StyleSheet.create({
+  button: {
+    borderRadius: 10
+  }
+})
+
 const iconButtons = StyleSheet.create({
   button: {
     alignItems: 'center',
@@ -115,4 +121,4 @@ const borderedPics = StyleSheet.create({
   }
 })
 
-export { styles, solidButtons, iconButtons, borderedPics }
+export { styles, solidButtons, fillButtons, iconButtons, borderedPics }
