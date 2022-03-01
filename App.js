@@ -11,6 +11,7 @@ import StatsPrevPrev from './screens/StatsPrevPrev'
 import Notifs from './screens/Notifs'
 import Profile from './screens/Profile'
 import Awake from './screens/Awake'
+import Asleep from './screens/Asleep'
 
 const RoomiesStack = createStackNavigator()
 
@@ -40,7 +41,8 @@ function HomeStackScreen() {
   return (
     <HomeStack.Navigator>
       <HomeStack.Screen name='Home' component={Home} options={{ headerShown: false }} />
-      <HomeStack.Screen name='Awake' component={Awake} options={{ headerShown: false }} />
+      <HomeStack.Screen name='Awake' component={Awake} options={{ headerShown: false, animationEnabled: false }} />
+      <HomeStack.Screen name='Asleep' component={Asleep} options={{ headerShown: false }} />
     </HomeStack.Navigator>
   )
 }

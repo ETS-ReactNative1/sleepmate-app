@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
     fontSize: 24,
     letterSpacing: 0.25,
     color: '#f7f7f7',
-    marginVertical: 48,
+    marginTop: 48,
     fontWeight: '600'
   },
   smallTitle: {
@@ -60,7 +60,6 @@ const styles = StyleSheet.create({
     fontSize: 48,
     letterSpacing: 0.25,
     color: '#f7f7f7',
-    marginTop: 48,
     marginBottom: 9,
     fontWeight: '600'
   },
