@@ -5,12 +5,7 @@ import Header from '../components/Header'
 import { LinearGradient } from 'expo-linear-gradient'
 import { LineChart } from 'react-native-chart-kit'
 
-function* yLabel() {
-  yield* ['Deep Sleep', 'Sleep', 'Awake'];
-}
-
 const Stats = () => {
-  const yLabelIterator = yLabel();
   return (
     <LinearGradient
       colors={['rgba(0, 51, 102, 1)', 'rgba(41, 43, 44, 1)']}
