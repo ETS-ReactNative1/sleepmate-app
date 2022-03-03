@@ -54,6 +54,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     letterSpacing: 0.5,
     color: '#f7f7f7',
+    fontWeight: '600',
     marginTop: 18
   },
   time: {
@@ -76,9 +77,8 @@ const solidButtons = StyleSheet.create({
   button: {
     alignItems: 'center',
     justifyContent: 'center',
-    paddingVertical: 15,
-    paddingHorizontal: 60,
-    borderRadius: 10,
+    paddingVertical: 20,
+    paddingHorizontal: 50,
     elevation: 3,
     backgroundColor: '#90acc8',
   },

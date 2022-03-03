@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, Text } from 'react-native'
 import { styles } from '../components/Styles'
-import FillButton from '../components/FillButton'
+import SolidButton from '../components/SolidButton'
 import { LinearGradient } from 'expo-linear-gradient'
 
 const Awake = ({ navigation }) => {
@@ -13,9 +13,10 @@ const Awake = ({ navigation }) => {
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
         <Text style={styles.time}>8:00 AM</Text>
         <Text style={styles.date}>Friday, February 11</Text>
-        <FillButton
-          buttonText='Wake Up'
-          onFilled={() => navigation.navigate('Home')}
+        <SolidButton
+          style={styles.button}
+          title='Wake Up'
+          onPress={() => navigation.navigate('Home')}
         />
       </View>
     </LinearGradient>
