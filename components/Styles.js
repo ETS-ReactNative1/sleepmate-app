@@ -19,23 +19,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     width: '100%'
   },
-  chartContainer: {
+  scrollView: {
     display: 'flex',
-    flexDirection: 'row',
-  },
-  chartLabelContainer: {
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'space-around',
-    alignItems: 'center',
-    width: 52,
-    position: 'absolute'
-  },
-  chartLabelText: {
-    marginLeft: 10,
-    marginVertical: 24,
-    color: '#f7f7f7',
-    fontSize: 12
+    width: '100%'
   },
   title: {
     fontSize: 24,
@@ -55,7 +41,8 @@ const styles = StyleSheet.create({
     letterSpacing: 0.5,
     color: '#f7f7f7',
     fontWeight: '600',
-    marginTop: 18
+    marginTop: 18,
+    alignSelf: 'center'
   },
   time: {
     fontSize: 48,
