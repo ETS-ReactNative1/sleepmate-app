@@ -57,6 +57,28 @@ const styles = StyleSheet.create({
     color: '#f7f7f7',
     marginBottom: 36,
     fontWeight: '600'
+  },
+  chartContainer: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'center'
+  },
+  chartLabel: {
+    color: '#f7f7f7'
+  },
+  xAxisLabelContainer: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
+    alignSelf: 'center',
+    width: '90%',
+    marginBottom: 32
+  },
+  yAxisLabelContainer: {
+    display: 'flex',
+    width: 50,
+    height: 200,
+    justifyContent: 'space-around'
   }
 })
 

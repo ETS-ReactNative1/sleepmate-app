@@ -25,7 +25,7 @@ const Awake = ({ navigation }) => {
     >
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
         <View style={{ flexDirection: 'row' }}>
-          <Text style={styles.time}>8</Text><Text style={[styles.time, {opacity: blinking}]}>:</Text><Text style={styles.time}>00 AM</Text>
+          <Text style={styles.time}>8</Text><Text style={[styles.time, { opacity: blinking }]}>:</Text><Text style={styles.time}>00 AM</Text>
         </View>
         <Text style={styles.date}>{nextDate[0]}, {nextDate[2]} {nextDate[1]}</Text>
         <SolidButton
