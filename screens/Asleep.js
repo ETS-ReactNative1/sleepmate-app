@@ -13,14 +13,14 @@ const Asleep = ({ navigation }) => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setBlinking((blinking) => (blinking + 1) % 2);
+      setBlinking((blinking) => blinking + 1);
     }, 1000);
     return () => clearInterval(interval);
   }, []);
 
-  setTimeout(() => {
-    navigation.navigate('Awake')
-  }, 5000)
+  if (blinking === 5) {
+    navigation.navigate('Awake');
+  }
   return (
     <LinearGradient
       colors={['rgba(0, 51, 102, 1)', 'rgba(41, 43, 44, 1)']}
@@ -28,7 +28,7 @@ const Asleep = ({ navigation }) => {
     >
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
         <View style={{ flexDirection: 'row' }}>
-          <Text style={styles.time}>7</Text><Text style={[styles.time, {opacity: blinking}]}>:</Text><Text style={styles.time}>59 AM</Text>
+          <Text style={styles.time}>7</Text><Text style={[styles.time, {opacity: (blinking % 2)}]}>:</Text><Text style={styles.time}>59 AM</Text>
         </View>
         <Text style={styles.date}>{nextDate[0]}, {nextDate[2]} {nextDate[1]}</Text>
         <SolidButton
