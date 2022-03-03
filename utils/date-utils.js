@@ -17,6 +17,16 @@ function getDateVars(date) {
   return [seconds, minutes, hours, time_of_day, day, num, month, divide];
 }
 
+function getNextDay(date) {
+  const week = new Array('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday');
+  const months = new Array('January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December');
+  var day = week[(date.getDay() + 1) % 7];
+  var dateCopy = date;
+  dateCopy.setDate(date.getDate() + 1)
+  var num = dateCopy.getDate();
+  var month = months[date.getMonth()];
+  return [day, num, month];
+}
 function getTimeOfDay(date) {
   var hour = date.getHours();
   if (hour > 6 && hour < 12) {
@@ -28,4 +38,4 @@ function getTimeOfDay(date) {
   }
 }
 
-export { getDateVars, getTimeOfDay };
+export { getDateVars, getTimeOfDay, getNextDay };

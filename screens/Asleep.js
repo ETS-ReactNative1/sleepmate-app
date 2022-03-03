@@ -3,25 +3,21 @@ import { View, Text } from 'react-native'
 import { styles } from '../components/Styles'
 import SolidButton from '../components/SolidButton'
 import { LinearGradient } from 'expo-linear-gradient'
+import { getNextDay } from '../utils/date-utils'
 
 const Asleep = ({ navigation }) => {
-  /**
-  const [date, setDate] = useState(new Date());
+  const [blinking, setBlinking] = useState(0);
+  const date = new Date();
 
-  var dateInfo = getDateVars(date); // returns [seconds, minutes, hours, time_of_day, day, num, month, divide];
-  var color = getTimeOfDayColor(getTimeOfDay(date));
+  var nextDate = getNextDay(date); // returns [day, num, month];
+
   useEffect(() => {
     const interval = setInterval(() => {
-      setDate(new Date());
-      dateInfo = getDateVars(date);
-      color = getTimeOfDayColor(getTimeOfDay(date));
-    }, 1000
-    );
-    return () => {
-      clearInterval(interval);
-    };
-  }, [])
-  */
+      setBlinking((blinking) => (blinking + 1) % 2);
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
+
   setTimeout(() => {
     navigation.navigate('Awake')
   }, 5000)
@@ -31,8 +27,10 @@ const Asleep = ({ navigation }) => {
       style={styles.container}
     >
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text style={styles.time}>7:59 AM</Text>
-        <Text style={styles.date}>Friday, February 11</Text>
+        <View style={{ flexDirection: 'row' }}>
+          <Text style={styles.time}>7</Text><Text style={[styles.time, {opacity: blinking}]}>:</Text><Text style={styles.time}>59 AM</Text>
+        </View>
+        <Text style={styles.date}>{nextDate[0]}, {nextDate[2]} {nextDate[1]}</Text>
         <SolidButton
           style={styles.button}
           title='Wake Up'
