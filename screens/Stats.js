@@ -3,7 +3,7 @@ import { Text, View, ScrollView } from 'react-native'
 import { styles } from '../components/Styles'
 import Header from '../components/Header'
 import { LinearGradient } from 'expo-linear-gradient'
-import { StackedAreaChart, AreaChart, Grid } from 'react-native-svg-charts'
+import { AreaChart, Grid } from 'react-native-svg-charts'
 import * as shape from 'd3-shape'
 
 const Stats = () => {
