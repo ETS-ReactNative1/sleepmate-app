@@ -28,9 +28,9 @@ const StatsStack = createStackNavigator()
 function StatsStackScreen() {
   return (
     <StatsStack.Navigator>
-      <StatsStack.Screen name='Stats' component={Stats} options={{ headerShown: false }} />
-      <StatsStack.Screen name='StatsPrev' component={StatsPrev} options={{ headerShown: false }} />
       <StatsStack.Screen name='StatsPrevPrev' component={StatsPrevPrev} options={{ headerShown: false }} />
+      <StatsStack.Screen name='StatsPrev' component={StatsPrev} options={{ headerShown: false }} />
+      <StatsStack.Screen name='Stats' component={Stats} options={{ headerShown: false }} />
     </StatsStack.Navigator>
   )
 }
