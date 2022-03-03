@@ -22,18 +22,18 @@ const styles = StyleSheet.create({
   chartContainer: {
     display: 'flex',
     flexDirection: 'row',
+    justifyContent: 'center',
+    width: '95%'
   },
   chartLabelContainer: {
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-around',
     alignItems: 'center',
-    width: 52,
-    position: 'absolute'
+    width: '15%',
+    height: 200,
   },
   chartLabelText: {
-    marginLeft: 10,
-    marginVertical: 24,
     color: '#f7f7f7',
     fontSize: 12
   },

@@ -1,10 +1,27 @@
-import React from 'react'
+import { React, useEffect, useState } from 'react'
 import { View, Text } from 'react-native'
 import { styles } from '../components/Styles'
 import FillButton from '../components/FillButton'
 import { LinearGradient } from 'expo-linear-gradient'
 
 const Asleep = ({ navigation }) => {
+  /**
+  const [date, setDate] = useState(new Date());
+
+  var dateInfo = getDateVars(date); // returns [seconds, minutes, hours, time_of_day, day, num, month, divide];
+  var color = getTimeOfDayColor(getTimeOfDay(date));
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setDate(new Date());
+      dateInfo = getDateVars(date);
+      color = getTimeOfDayColor(getTimeOfDay(date));
+    }, 1000
+    );
+    return () => {
+      clearInterval(interval);
+    };
+  }, [])
+  */
   setTimeout(() => {
     navigation.navigate('Awake')
   }, 5000)

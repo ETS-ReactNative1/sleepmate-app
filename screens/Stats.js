@@ -5,7 +5,12 @@ import Header from '../components/Header'
 import { LinearGradient } from 'expo-linear-gradient'
 import { LineChart } from 'react-native-chart-kit'
 
+function* yLabel() {
+  yield* ['Deep Sleep', 'Sleep', 'Awake'];
+}
+
 const Stats = () => {
+  const yLabelIterator = yLabel();
   return (
     <LinearGradient
       colors={['rgba(0, 51, 102, 1)', 'rgba(41, 43, 44, 1)']}
@@ -43,17 +48,17 @@ const Stats = () => {
             ]
           }}
           withHorizontalLabels={false}
-          width={0.85 * Dimensions.get("window").width} // from react-native}
+          width={0.8 * Dimensions.get("window").width} // from react-native}
           height={200}
           yAxisInterval={1} // optional, defaults to 1
           chartConfig={{
-            backgroundColor: "rgba(247, 247, 247, 0)",
-            backgroundGradientFrom: "rgba(247, 247, 247, 0)",
-            backgroundGradientTo: "rgba(247, 247, 247, 0)",
+            backgroundColor: "rgba(0, 0, 0, 0)",
+            backgroundGradientFrom: "rgba(0, 0, 0, 0)",
+            backgroundGradientTo: "rgba(0, 0, 0, 0)",
             color: (opacity = 0) => `rgba(247, 247, 247, ${opacity})`,
             labelColor: (opacity = 0) => `rgba(247, 247, 247, ${opacity})`,
             style: {
-              borderRadius: 10
+              borderRadius: 10,
             },
             propsForDots: {
               r: "0"
@@ -65,7 +70,8 @@ const Stats = () => {
           bezier
           style={{
             marginVertical: 9,
-            borderRadius: 10
+            borderRadius: 10,
+            paddingRight: 10
           }}
         />
       </View>
@@ -96,7 +102,7 @@ const Stats = () => {
             ]
           }}
           withHorizontalLabels={false}
-          width={0.85 * Dimensions.get("window").width} // from react-native}
+          width={0.8 * Dimensions.get("window").width} // from react-native}
           height={200}
           yAxisInterval={1} // optional, defaults to 1
           chartConfig={{
@@ -118,7 +124,8 @@ const Stats = () => {
           bezier
           style={{
             marginVertical: 9,
-            borderRadius: 10
+            borderRadius: 10,
+            paddingRight: 10
           }}
         />
       </View>
