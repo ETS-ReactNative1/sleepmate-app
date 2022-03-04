@@ -17,7 +17,10 @@ const Profile = () => {
         leftIcon='chevron-back-circle-outline'
         leftPage='Home'
       />
-      <BorderedPic image={require('../images/tristan.png')} />
+      <BorderedPic
+        size={150}
+        image={require('../images/tristan.png')}
+      />
       <Text style={styles.title}>Tristan W.</Text>
       <SolidButton
         style={styles.button}

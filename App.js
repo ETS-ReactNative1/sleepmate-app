@@ -12,6 +12,7 @@ import Notifs from './screens/Notifs'
 import Profile from './screens/Profile'
 import Awake from './screens/Awake'
 import Asleep from './screens/Asleep'
+import RoomieInfo from './screens/RoomieInfo'
 
 const RoomiesStack = createStackNavigator()
 
@@ -19,6 +20,7 @@ function RoomiesStackScreen() {
   return (
     <RoomiesStack.Navigator>
       <RoomiesStack.Screen name='Roomies' component={Roomies} options={{ headerShown: false }} />
+      <RoomiesStack.Screen name='RoomieInfo' component={RoomieInfo} options={{ headerShown: false }} />
     </RoomiesStack.Navigator>
   )
 }

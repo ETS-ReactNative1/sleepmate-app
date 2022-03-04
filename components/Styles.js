@@ -13,7 +13,8 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   headerContainer: {
-    margin: 32,
+    marginTop: 32,
+    marginBottom: 12,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
@@ -28,6 +29,7 @@ const styles = StyleSheet.create({
     letterSpacing: 0.25,
     color: '#f7f7f7',
     marginTop: 48,
+    marginBottom: 32,
     fontWeight: '600'
   },
   smallTitle: {
@@ -63,6 +65,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center'
   },
+  chartHeading: {
+    color: '#f7f7f7',
+    fontWeight: '600'
+  },
   chartLabel: {
     color: '#f7f7f7'
   },
@@ -79,6 +85,24 @@ const styles = StyleSheet.create({
     width: 50,
     height: 200,
     justifyContent: 'space-around'
+  }
+})
+
+const contactButtons = StyleSheet.create({
+  button: {
+    backgroundColor: 'rgba(144, 172, 200, 0.25)',
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    width: '90%',
+    borderRadius: 10,
+    marginBottom: 16
+  },
+  name: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: '#f7f7f7'
   }
 })
 
@@ -124,9 +148,7 @@ const borderedPics = StyleSheet.create({
     borderWidth: 2,
     borderRadius: 10,
     borderColor: '#f7f7f7',
-    width: 150,
-    height: 150
   }
 })
 
-export { styles, solidButtons, fillButtons, iconButtons, borderedPics }
+export { styles, solidButtons, fillButtons, iconButtons, contactButtons, borderedPics }

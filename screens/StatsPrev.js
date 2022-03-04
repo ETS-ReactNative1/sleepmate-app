@@ -112,20 +112,20 @@ const StatsPrev = () => {
           style={{ width: '90%', alignSelf: 'center', marginTop: 16 }}
         >
           <DataTable.Row>
-            <DataTable.Cell><Text style={styles.chartLabel}>In Bed</Text></DataTable.Cell>
-            <DataTable.Cell><Text style={styles.chartLabel}>11:17 PM - 6:42 AM</Text></DataTable.Cell>
+            <DataTable.Cell><Text style={styles.chartHeading}>In Bed</Text></DataTable.Cell>
+            <DataTable.Cell><Text style={styles.chartLabel}>11:06 PM - 6:12 AM</Text></DataTable.Cell>
           </DataTable.Row>
           <DataTable.Row>
-            <DataTable.Cell><Text style={styles.chartLabel}>Sleep Quality</Text></DataTable.Cell>
-            <DataTable.Cell><Text style={styles.chartLabel}>72%</Text></DataTable.Cell>
+            <DataTable.Cell><Text style={styles.chartHeading}>Sleep Quality</Text></DataTable.Cell>
+            <DataTable.Cell><Text style={styles.chartLabel}>86%</Text></DataTable.Cell>
           </DataTable.Row>
           <DataTable.Row>
-            <DataTable.Cell><Text style={styles.chartLabel}>Time In Bed</Text></DataTable.Cell>
-            <DataTable.Cell><Text style={styles.chartLabel}>7 hours 25 minutes</Text></DataTable.Cell>
+            <DataTable.Cell><Text style={styles.chartHeading}>Time In Bed</Text></DataTable.Cell>
+            <DataTable.Cell><Text style={styles.chartLabel}>7 hours 6 minutes</Text></DataTable.Cell>
           </DataTable.Row>
           <DataTable.Row>
-            <DataTable.Cell><Text style={styles.chartLabel}>Noise Level</Text></DataTable.Cell>
-            <DataTable.Cell><Text style={styles.chartLabel}>Moderate</Text></DataTable.Cell>
+            <DataTable.Cell><Text style={styles.chartHeading}>Noise Level</Text></DataTable.Cell>
+            <DataTable.Cell><Text style={styles.chartLabel}>Low</Text></DataTable.Cell>
           </DataTable.Row>
         </DataTable>
       </ScrollView>
