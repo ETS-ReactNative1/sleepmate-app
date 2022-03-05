@@ -23,11 +23,7 @@ const CalendarModal = ({ navigation }) => {
         <Calendar
           current={'2022-03-04'}
           maxDate={'2022-03-31'}
-          onDayPress={day => {
-            navigation.navigate('StatsDate', {
-              date: day,
-            })
-          }}
+          onDayPress={() => navigation.navigate('StatsPrevPrev')}
           theme={{
             backgroundColor: 'transparent',
             calendarBackground: 'transparent',
