@@ -1,11 +1,11 @@
 import React from 'react'
 import { Text, View, ScrollView } from 'react-native'
 import { styles } from '../components/Styles'
-import Header from '../components/Header'
 import { LinearGradient } from 'expo-linear-gradient'
 import { AreaChart, Grid } from 'react-native-svg-charts'
 import { DataTable } from 'react-native-paper'
 import * as shape from 'd3-shape'
+import ExtendedHeader from '../components/ExtendedHeader'
 
 const StatsPrevPrev = () => {
   const topData = [
@@ -35,10 +35,13 @@ const StatsPrevPrev = () => {
       colors={['rgba(0, 51, 102, 1)', 'rgba(41, 43, 44, 1)']}
       style={styles.container}
     >
-      <Header
-        pageName='TUES FEB 8-9'
+      <ExtendedHeader
+        pageName='TUE FEB 8-9'
+        leftIcon='chevron-back-outline'
         rightIcon='chevron-forward-outline'
         rightPage='StatsPrev'
+        rightActionIcon='search-circle-outline'
+        rightAction='CalendarModal'
       />
       <ScrollView style={styles.scrollView}>
         <Text style={styles.subtitle}>Sleep Quality</Text>
@@ -115,7 +118,7 @@ const StatsPrevPrev = () => {
           </DataTable.Row>
           <DataTable.Row>
             <DataTable.Cell><Text style={styles.chartHeading}>Sleep Quality</Text></DataTable.Cell>
-            <DataTable.Cell><Text style={styles.chartLabel}>74%</Text></DataTable.Cell>
+            <DataTable.Cell><Text style={styles.chartLabel}>Pretty Good</Text></DataTable.Cell>
           </DataTable.Row>
           <DataTable.Row>
             <DataTable.Cell><Text style={styles.chartHeading}>Time In Bed</Text></DataTable.Cell>
@@ -123,7 +126,7 @@ const StatsPrevPrev = () => {
           </DataTable.Row>
           <DataTable.Row>
             <DataTable.Cell><Text style={styles.chartHeading}>Noise Level</Text></DataTable.Cell>
-            <DataTable.Cell><Text style={styles.chartLabel}>Moderate</Text></DataTable.Cell>
+            <DataTable.Cell><Text style={styles.chartLabel}>Quiet</Text></DataTable.Cell>
           </DataTable.Row>
         </DataTable>
       </ScrollView>

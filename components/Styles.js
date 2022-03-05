@@ -12,13 +12,29 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center'
   },
+  modalHeaderContainer: {
+    marginTop: 12,
+    marginBottom: 12,
+    flexDirection: 'row',
+    alignItems: 'center',
+    width: '100%',
+    justifyContent: 'space-between'
+  },
   headerContainer: {
     marginTop: 32,
     marginBottom: 12,
     flexDirection: 'row',
-    justifyContent: 'space-between',
     alignItems: 'center',
-    width: '100%'
+    width: '100%',
+    justifyContent: 'space-between'
+  },
+  extendedHeaderContainer: {
+    marginTop: 32,
+    marginBottom: 12,
+    flexDirection: 'row',
+    alignItems: 'center',
+    width: '100%',
+    justifyContent: 'space-evenly'
   },
   scrollView: {
     display: 'flex',

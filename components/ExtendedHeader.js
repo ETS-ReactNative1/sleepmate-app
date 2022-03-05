@@ -4,11 +4,11 @@ import { styles } from '../components/Styles'
 import IconButton from './IconButton'
 import { useNavigation } from '@react-navigation/native'
 
-const Header = (props) => {
-  const { pageName, leftIcon, rightIcon, leftPage, rightPage } = props
+const ExtendedHeader = (props) => {
+  const { pageName, leftIcon, rightIcon, rightActionIcon, leftPage, rightPage, rightAction } = props
   const navigation = useNavigation()
   return (
-    <View style={styles.headerContainer}>
+    <View style={styles.extendedHeaderContainer}>
       <IconButton
         iconName={leftIcon}
         onPress={() => navigation.navigate(leftPage)}
@@ -18,8 +18,12 @@ const Header = (props) => {
         iconName={rightIcon}
         onPress={() => navigation.navigate(rightPage)}
       />
+      <IconButton
+        iconName={rightActionIcon}
+        onPress={() => navigation.navigate(rightAction)}
+      />
     </View>
   )
 }
 
-export default Header
+export default ExtendedHeader

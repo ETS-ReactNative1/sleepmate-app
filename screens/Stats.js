@@ -1,7 +1,7 @@
 import React from 'react'
 import { Text, View, ScrollView } from 'react-native'
 import { styles } from '../components/Styles'
-import Header from '../components/Header'
+import ExtendedHeader from '../components/ExtendedHeader'
 import { LinearGradient } from 'expo-linear-gradient'
 import { AreaChart, Grid } from 'react-native-svg-charts'
 import { DataTable } from 'react-native-paper'
@@ -36,11 +36,15 @@ const Stats = () => {
       colors={['rgba(0, 51, 102, 1)', 'rgba(41, 43, 44, 1)']}
       style={styles.container}
     >
-      <Header
-        pageName='THU FEB 10-11'
-        leftIcon='chevron-back-outline'
-        leftPage='StatsPrev'
-      />
+      <View style={{ display: 'flex', justifyContent: 'space-between' }}>
+        <ExtendedHeader
+          pageName='THU FEB 10-11'
+          leftIcon='chevron-back-outline'
+          leftPage='StatsPrev'
+          rightActionIcon='search-circle-outline'
+          rightAction='CalendarModal'
+        />
+      </View>
       <ScrollView style={styles.scrollView}>
         <Text style={styles.subtitle}>Sleep Quality</Text>
         <View style={styles.chartContainer}>
@@ -116,7 +120,7 @@ const Stats = () => {
           </DataTable.Row>
           <DataTable.Row>
             <DataTable.Cell><Text style={styles.chartHeading}>Sleep Quality</Text></DataTable.Cell>
-            <DataTable.Cell><Text style={styles.chartLabel}>72%</Text></DataTable.Cell>
+            <DataTable.Cell><Text style={styles.chartLabel}>Pretty Good</Text></DataTable.Cell>
           </DataTable.Row>
           <DataTable.Row>
             <DataTable.Cell><Text style={styles.chartHeading}>Time In Bed</Text></DataTable.Cell>
@@ -124,7 +128,7 @@ const Stats = () => {
           </DataTable.Row>
           <DataTable.Row>
             <DataTable.Cell><Text style={styles.chartHeading}>Noise Level</Text></DataTable.Cell>
-            <DataTable.Cell><Text style={styles.chartLabel}>Moderate</Text></DataTable.Cell>
+            <DataTable.Cell><Text style={styles.chartLabel}>Loud</Text></DataTable.Cell>
           </DataTable.Row>
         </DataTable>
       </ScrollView>
