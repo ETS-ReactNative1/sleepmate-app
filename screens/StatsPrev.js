@@ -1,11 +1,11 @@
 import React from 'react'
 import { Text, View, ScrollView } from 'react-native'
 import { styles } from '../components/Styles'
-import Header from '../components/Header'
 import { LinearGradient } from 'expo-linear-gradient'
 import { AreaChart, Grid } from 'react-native-svg-charts'
 import { DataTable } from 'react-native-paper'
 import * as shape from 'd3-shape'
+import ExtendedHeader from '../components/ExtendedHeader'
 
 const StatsPrev = () => {
   const topData = [
@@ -35,12 +35,14 @@ const StatsPrev = () => {
       colors={['rgba(0, 51, 102, 1)', 'rgba(41, 43, 44, 1)']}
       style={styles.container}
     >
-      <Header
+      <ExtendedHeader
         pageName='WED FEB 9-10'
         leftIcon='chevron-back-outline'
         leftPage='StatsPrevPrev'
         rightIcon='chevron-forward-outline'
         rightPage='Stats'
+        rightActionIcon='search-circle-outline'
+        rightAction='CalendarModal'
       />
       <ScrollView style={styles.scrollView}>
         <Text style={styles.subtitle}>Sleep Quality</Text>
@@ -117,7 +119,7 @@ const StatsPrev = () => {
           </DataTable.Row>
           <DataTable.Row>
             <DataTable.Cell><Text style={styles.chartHeading}>Sleep Quality</Text></DataTable.Cell>
-            <DataTable.Cell><Text style={styles.chartLabel}>86%</Text></DataTable.Cell>
+            <DataTable.Cell><Text style={styles.chartLabel}>Pretty Good</Text></DataTable.Cell>
           </DataTable.Row>
           <DataTable.Row>
             <DataTable.Cell><Text style={styles.chartHeading}>Time In Bed</Text></DataTable.Cell>
@@ -125,7 +127,7 @@ const StatsPrev = () => {
           </DataTable.Row>
           <DataTable.Row>
             <DataTable.Cell><Text style={styles.chartHeading}>Noise Level</Text></DataTable.Cell>
-            <DataTable.Cell><Text style={styles.chartLabel}>Low</Text></DataTable.Cell>
+            <DataTable.Cell><Text style={styles.chartLabel}>Quiet</Text></DataTable.Cell>
           </DataTable.Row>
         </DataTable>
       </ScrollView>
