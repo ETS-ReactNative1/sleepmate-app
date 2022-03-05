@@ -5,7 +5,7 @@ import { borderedPics } from './Styles'
 const BorderedPic = (props) => {
   const { size, image, onPress } = props
   return (
-    <Pressable>
+    <Pressable style={{ flex: 1, overflow: 'hidden' }} onPress={onPress}>
       <Image
         style={borderedPics.image}
         source={image}

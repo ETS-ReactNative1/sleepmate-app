@@ -13,9 +13,11 @@ import Profile from './screens/Profile'
 import Awake from './screens/Awake'
 import Asleep from './screens/Asleep'
 import RoomieInfo from './screens/RoomieInfo'
+import * as SQLite from 'expo-sqlite'
 
 const RoomiesStack = createStackNavigator()
 
+const ProfilesDB = SQLite.openDatabase('Profiles.db')
 function RoomiesStackScreen() {
   return (
     <RoomiesStack.Navigator>
