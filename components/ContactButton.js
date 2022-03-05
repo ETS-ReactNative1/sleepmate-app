@@ -18,6 +18,7 @@ const ContactButton = (props) => {
       />
       <Text style={contactButtons.name}>{name}</Text>
       <IconButton
+        style={{flex: 1}}
         iconName='chevron-forward-outline'
         onPress={onPress}
       />
