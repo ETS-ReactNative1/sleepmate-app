@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
     fontSize: 24,
     letterSpacing: 0.25,
     color: '#f7f7f7',
-    marginTop: 48,
+    marginTop: 32,
     marginBottom: 32,
     fontWeight: '600'
   },
@@ -162,7 +162,7 @@ const iconButtons = StyleSheet.create({
 
 const borderedPics = StyleSheet.create({
   image: {
-    aspectRatio: 1, 
+    aspectRatio: 1,
     resizeMode: 'cover',
     flex: 1,
     borderWidth: 2,

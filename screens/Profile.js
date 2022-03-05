@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text } from 'react-native'
+import { Text, ScrollView, View } from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient'
 import { styles } from '../components/Styles'
 import Header from '../components/Header'
@@ -17,16 +17,19 @@ const Profile = () => {
         leftIcon='chevron-back-circle-outline'
         leftPage='Home'
       />
-      <BorderedPic
-        size={150}
-        image={require('../images/tristan.png')}
-      />
-      <Text style={styles.title}>Tristan W.</Text>
-      <SolidButton
-        style={styles.button}
-        title='Edit Preferences'
-      />
-
+      <ScrollView style={styles.scrollView}>
+        <View style={{ display: 'flex', alignItems: 'center' }}>
+          <BorderedPic
+            size={150}
+            image={require('../images/tristan.png')}
+          />
+          <Text style={styles.title}>Tristan W.</Text>
+          <SolidButton
+            style={styles.button}
+            title='Edit Preferences'
+          />
+        </View>
+      </ScrollView>
     </LinearGradient>
   )
 }
