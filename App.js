@@ -8,6 +8,7 @@ import Roomies from './screens/Roomies'
 import Stats from './screens/Stats'
 import StatsPrev from './screens/StatsPrev'
 import StatsPrevPrev from './screens/StatsPrevPrev'
+import StatsDate from './screens/StatsDate'
 import CalendarModal from './screens/CalendarModal'
 import Notifs from './screens/Notifs'
 import Profile from './screens/Profile'
@@ -36,6 +37,7 @@ function StatsStackScreen() {
         <StatsStack.Screen name='StatsPrevPrev' component={StatsPrevPrev} options={{ headerShown: false }} />
         <StatsStack.Screen name='StatsPrev' component={StatsPrev} options={{ headerShown: false }} />
         <StatsStack.Screen name='Stats' component={Stats} options={{ headerShown: false }} />
+        <StatsStack.Screen name='StatsDate' component={StatsDate} options={{ headerShown: false }} />
       </StatsStack.Group>
       <StatsStack.Group screenOptions={{ presentation: 'modal' }}>
         <StatsStack.Screen name='CalendarModal' component={CalendarModal} options={{ headerShown: false }} />

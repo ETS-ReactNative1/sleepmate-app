@@ -8,7 +8,6 @@ import { DataTable } from 'react-native-paper'
 import * as shape from 'd3-shape'
 
 const Stats = () => {
-
   const topData = [
     100,
     Math.floor(Math.random() * 80) + 10,

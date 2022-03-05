@@ -24,7 +24,9 @@ const CalendarModal = ({ navigation }) => {
           current={'2022-03-04'}
           maxDate={'2022-03-31'}
           onDayPress={day => {
-            console.log('selected day', day)
+            navigation.navigate('StatsDate', {
+              date: day,
+            })
           }}
           theme={{
             backgroundColor: 'transparent',
