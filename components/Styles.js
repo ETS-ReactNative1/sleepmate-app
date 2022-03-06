@@ -119,7 +119,7 @@ const contactButtons = StyleSheet.create({
     fontSize: 16,
     fontWeight: '600',
     color: '#f7f7f7',
-    flex: 1
+    flex: 2
   }
 })
 
@@ -137,6 +137,34 @@ const solidButtons = StyleSheet.create({
     letterSpacing: 0.25,
     color: '#f7f7f7',
     fontWeight: '600',
+  }
+})
+
+const displayFields = StyleSheet.create({
+  field: {
+    backgroundColor: 'rgba(144, 172, 200, 0.25)',
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    width: '90%',
+    borderRadius: 10,
+    marginBottom: 16,
+    padding: 16
+  }
+})
+
+const displayButtons = StyleSheet.create({
+  button: {
+    backgroundColor: 'rgba(144, 172, 200, 0.25)',
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '90%',
+    borderRadius: 10,
+    marginBottom: 16,
+    padding: 16
   }
 })
 
@@ -171,4 +199,4 @@ const borderedPics = StyleSheet.create({
   }
 })
 
-export { styles, solidButtons, fillButtons, iconButtons, contactButtons, borderedPics }
+export { styles, solidButtons, fillButtons, iconButtons, contactButtons, borderedPics, displayFields, displayButtons }

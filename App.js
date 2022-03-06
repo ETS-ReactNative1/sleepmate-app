@@ -11,6 +11,7 @@ import StatsPrevPrev from './screens/StatsPrevPrev'
 import CalendarModal from './screens/CalendarModal'
 import Notifs from './screens/Notifs'
 import Profile from './screens/Profile'
+import ProfileEdit from './screens/ProfileEdit'
 import Awake from './screens/Awake'
 import Asleep from './screens/Asleep'
 import RoomieInfo from './screens/RoomieInfo'
@@ -74,6 +75,7 @@ function ProfileStackScreen() {
   return (
     <ProfileStack.Navigator>
       <ProfileStack.Screen name='Profile' component={Profile} options={{ headerShown: false }} />
+      <ProfileStack.Screen name='ProfileEdit' component={ProfileEdit} options={{ headerShown: false }} />
     </ProfileStack.Navigator>
   )
 }

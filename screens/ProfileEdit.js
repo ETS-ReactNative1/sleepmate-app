@@ -6,17 +6,18 @@ import DisplayField from '../components/DisplayField'
 import Header from '../components/Header'
 import BorderedPic from '../components/BorderedPic'
 import DisplayButton from '../components/DisplayButton'
+import { NavigationContainer } from '@react-navigation/native'
 
-const Profile = ({ navigation }) => {
+const ProfileEdit = ({ navigation }) => {
   return (
     <LinearGradient
       colors={['rgba(0, 51, 102, 1)', 'rgba(41, 43, 44, 1)']}
       style={styles.container}
     >
       <Header
-        pageName='PROFILE'
+        pageName='EDIT PROFILE'
         leftIcon='chevron-back-circle-outline'
-        leftPage='Home'
+        leftPage='Profile'
       />
       <ScrollView style={styles.scrollView}>
         <View style={{ display: 'flex', alignItems: 'center' }}>
@@ -41,21 +42,10 @@ const Profile = ({ navigation }) => {
           }}>
             Joined February 2022
           </Text>
-          <DisplayField
-            name='Sleep Quality'
-            desc='Not Specified'
-          />
-          <DisplayField
-            name='Average Bedtime'
-            desc='Not Enough Data'
-          />
-          <DisplayField
-            name='Average Wakeup'
-            desc='Not Enough Data'
-          />
+
           <DisplayButton
-            name='Edit Preferences'
-            onPress={() => navigation.navigate('ProfileEdit')}
+            name='Save Changes'
+            onPress={() => navigation.navigate('Profile')}
           />
         </View>
       </ScrollView>
@@ -63,4 +53,4 @@ const Profile = ({ navigation }) => {
   )
 }
 
-export default Profile
+export default ProfileEdit
