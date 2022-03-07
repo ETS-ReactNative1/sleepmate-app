@@ -111,7 +111,6 @@ const contactButtons = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'flex-start',
     alignItems: 'center',
-    width: '90%',
     borderRadius: 10,
     marginBottom: 16
   },
@@ -199,4 +198,28 @@ const borderedPics = StyleSheet.create({
   }
 })
 
-export { styles, solidButtons, fillButtons, iconButtons, contactButtons, borderedPics, displayFields, displayButtons }
+const editButton = StyleSheet.create({
+  button: {
+    backgroundColor: 'rgba(144, 172, 200, 0.0)',
+    alignSelf: 'center',
+    justifyContent: 'center',
+    paddingVertical: 9,
+    paddingHorizontal: 18,
+    width: 72
+  }
+})
+
+const removeAnimation = StyleSheet.create({
+  animation: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#fafafa',
+    borderBottomWidth: 1,
+    borderColor: '#ddd',
+    paddingTop: 4,
+    height: 40
+  }
+})
+
+export { styles, solidButtons, fillButtons, iconButtons, contactButtons, borderedPics, displayFields, displayButtons, editButton, removeAnimation }

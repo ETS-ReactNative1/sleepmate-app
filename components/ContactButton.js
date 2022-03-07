@@ -5,10 +5,10 @@ import BorderedPic from './BorderedPic'
 import IconButton from './IconButton'
 
 const ContactButton = (props) => {
-  const { size, image, name, onPress } = props
+  const { size, image, width='90%', name, onPress } = props
   return (
     <Pressable
-      style={contactButtons.button}
+      style={[contactButtons.button, {width: width}]}
       onPress={onPress}
     >
       <BorderedPic

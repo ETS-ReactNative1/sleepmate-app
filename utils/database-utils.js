@@ -37,7 +37,7 @@ function getProfilesDatabase() {
     'first_name text not null,' +
     'middle_name text default "",' +
     'last_name text not null,' +
-    'profile_pic text default "default.png",' +
+    'profile_pic text default "default.jpg",' +
     'join_year integer default 2022,' +
     'join_month text default "February",' +
     'sleeping_status text default "awake",' +
@@ -49,17 +49,20 @@ function getProfilesDatabase() {
     "where not exists(select 1 from Profiles where id = 1)");
   insertItem(profilesDB, 'Profiles', 'id, first_name, last_name, profile_pic, friendship_status', '2, "Derek", "Chung", "derek.jpg", "friended"',
     "where not exists(select 1 from Profiles where id = 2)");
-  profilesDB.transaction(
-    (tx) => {
-      tx.executeSql("select * from Profiles", [], (_, { rows }) =>
-        console.log(JSON.stringify(rows))
-      );
-    },
-    null,
-    null
-  );
+  insertItem(profilesDB, 'Profiles', 'id, first_name, last_name, profile_pic, friendship_status', '3, "Michelle", "Xu", "michelle.jpg", "friended"',
+    "where not exists(select 1 from Profiles where id = 3)");
+  insertItem(profilesDB, 'Profiles', 'id, first_name, last_name', '4, "Not", "Friend"',
+    "where not exists(select 1 from Profiles where id = 4)");
+  profilesDB.transaction((tx) => {
+    tx.executeSql(
+      `select * from Profiles where friendship_status = "friended" or friendship_status = "pending" order by friendship_status, last_name`,
+      null,
+      (_, { rows }) => console.log(JSON.stringify(rows))
+    );
+  });
+  
 }
 
-export { getProfilesDatabase }
+export { openDatabase, getProfilesDatabase }
 
 

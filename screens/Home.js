@@ -5,9 +5,7 @@ import { LinearGradient } from 'expo-linear-gradient'
 import FillButton from '../components/FillButton'
 import { getDateVars, getTimeOfDay } from '../utils/date-utils'
 import { getTimeOfDayColor } from '../utils/color-utils'
-import { getProfilesDatabase } from '../utils/database-utils'
 
-getProfilesDatabase();
 const Home = ({ navigation }) => {
 
   const [date, setDate] = useState(new Date());
