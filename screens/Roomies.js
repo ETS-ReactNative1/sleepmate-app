@@ -109,17 +109,14 @@ export default class Roomies extends React.Component {
               {IMAGES.filter(item => item.name === profile_pic).map(({ name, link }) => (
                 <Animated.View key={`contact-container-${id}`} style={{
                   transform: [{
-
-                    scaleX: this.state.controlWidth.interpolate({ inputRange: [0, 1], outputRange: [1, 1 - (72 / width / 0.9)] })
-                  }, {
-                      translateX: this.state.controlWidth.interpolate({ inputRange: [0, 1], outputRange: [-72, 0]})
+                      translateX: this.state.controlWidth.interpolate({ inputRange: [0, 1], outputRange: [-72, 0.05 * width]})
                     }
                   ],
                 }}>
                   <ContactButton
                     key={`contact-${id}`}
                     image={link}
-                    width={width * 0.9 - (this.state.controlWidth._value !== 0 ? 0 : (this.state.started ? (72) / 2 : 0))}
+                    width={width * 0.9}
                     sleeping_opacity={sleeping_status === 'sleeping' && friendship_status === 'friended' ? 1 : 0}
                     style={{ flex: 1 }}
                     size={75}
