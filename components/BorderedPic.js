@@ -7,15 +7,14 @@ const BorderedPic = (props) => {
   return (
     <Pressable style={{ flex: 1, overflow: 'hidden', width: size, height: size }} onPress={onPress}>
       <ImageBackground
-        style={borderedPics.image}
+        style={[borderedPics.image, { flex: 1 }]}
         source={image}
         onPress={onPress}
         width={size}
         height={size}
       >
         <Image
-          width={parseInt(size / 10.0)}
-          height={parseInt(size / 10.0)}
+          style={{ width: parseInt(size / 5.0), height: parseInt(size / 5.0)}}
           opacity={sleeping_opacity}
           source={require('../images/sleep.png')}
         ></Image>

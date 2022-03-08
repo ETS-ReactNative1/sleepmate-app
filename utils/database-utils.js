@@ -31,6 +31,22 @@ function insertItem(database, table, fields, values, constraints) {
   );
 }
 
+function deleteItem(database, table, constraints) {
+  database.transaction(
+    (tx) => {
+      tx.executeSql(`delete from ${table} where ${constraints};`);
+    }
+  );
+}
+
+function updateItem(database, table, new_values, constraints) {
+  database.transaction(
+    (tx) => {
+      tx.executeSql(`update ${table} set ${new_values} where ${constraints};`);
+    }
+  );
+}
+
 function getProfilesDatabase() {
   var profilesDB = openDatabase('Profiles.db');
   initializeDatabaseTable(profilesDB, 'Profiles', 'id integer primary key not null,' +
@@ -45,6 +61,9 @@ function getProfilesDatabase() {
     'sleep_quality text default "Light Sleeper",' +
     'average_bedtime text default "10:00 PM",' +
     'average_wakeup text default "8:00 AM"');
+  deleteItem(profilesDB, 'Profiles', 'id=1');
+  deleteItem(profilesDB, 'Profiles', 'id=2');
+  deleteItem(profilesDB, 'Profiles', 'id=3');
   insertItem(profilesDB, 'Profiles', 'id, first_name, last_name, profile_pic, friendship_status, sleeping_status', '1, "Aaron", "Han", "aaron.jpg", "friended", "sleeping"',
     "where not exists(select 1 from Profiles where id = 1)");
   insertItem(profilesDB, 'Profiles', 'id, first_name, last_name, profile_pic, friendship_status', '2, "Derek", "Chung", "derek.jpg", "friended"',
@@ -63,6 +82,6 @@ function getProfilesDatabase() {
   
 }
 
-export { openDatabase, getProfilesDatabase }
+export { openDatabase, getProfilesDatabase, updateItem }
 
 
