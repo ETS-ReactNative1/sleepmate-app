@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text, ScrollView, View } from 'react-native'
+import { Text, ScrollView, View, Dimensions } from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient'
 import { styles } from '../components/Styles'
 import DisplayField from '../components/DisplayField'
@@ -21,7 +21,7 @@ const Profile = ({ navigation }) => {
       <ScrollView style={styles.scrollView}>
         <View style={{ display: 'flex', alignItems: 'center' }}>
           <BorderedPic
-            size={150}
+            size={Dimensions.get('window').width * 0.9}
             image={require('../images/tristan.png')}
           />
           <Text style={{

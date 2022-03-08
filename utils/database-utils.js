@@ -45,7 +45,7 @@ function getProfilesDatabase() {
     'sleep_quality text default "Light Sleeper",' +
     'average_bedtime text default "10:00 PM",' +
     'average_wakeup text default "8:00 AM"');
-  insertItem(profilesDB, 'Profiles', 'id, first_name, last_name, profile_pic, friendship_status', '1, "Aaron", "Han", "aaron.jpg", "friended"',
+  insertItem(profilesDB, 'Profiles', 'id, first_name, last_name, profile_pic, friendship_status, sleeping_status', '1, "Aaron", "Han", "aaron.jpg", "friended", "sleeping"',
     "where not exists(select 1 from Profiles where id = 1)");
   insertItem(profilesDB, 'Profiles', 'id, first_name, last_name, profile_pic, friendship_status', '2, "Derek", "Chung", "derek.jpg", "friended"',
     "where not exists(select 1 from Profiles where id = 2)");

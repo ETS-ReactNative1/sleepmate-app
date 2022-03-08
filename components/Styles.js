@@ -109,7 +109,7 @@ const contactButtons = StyleSheet.create({
     backgroundColor: 'rgba(144, 172, 200, 0.25)',
     display: 'flex',
     flexDirection: 'row',
-    justifyContent: 'flex-start',
+    justifyContent: 'space-between',
     alignItems: 'center',
     borderRadius: 10,
     marginBottom: 16
@@ -118,7 +118,7 @@ const contactButtons = StyleSheet.create({
     fontSize: 16,
     fontWeight: '600',
     color: '#f7f7f7',
-    flex: 2
+    flex: 1
   }
 })
 
@@ -191,6 +191,8 @@ const borderedPics = StyleSheet.create({
   image: {
     aspectRatio: 1,
     resizeMode: 'cover',
+    overflow: 'hidden',
+    justifyContent: 'flex-start',
     flex: 1,
     borderWidth: 2,
     borderRadius: 10,
