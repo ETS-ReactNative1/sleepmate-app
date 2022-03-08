@@ -8,6 +8,29 @@ import DisplayField from '../components/DisplayField'
 
 const RoomieInfo = (props) => {
   console.log(props['route']);
+  let displayField = <Text style={{
+    color: '#f7f7f7',
+    marginTop: 8,
+    marginBottom: 32,
+  }}>
+    Status: Pending
+  </Text>;
+  if (props['route']['params']['friendship_status'] === 'friended') {
+    displayField =
+      <React.Fragment>
+      <Text style={{
+        color: '#f7f7f7',
+        marginTop: 8,
+        marginBottom: 32,
+      }}>
+        Joined {props['route']['params']['join_month']} {props['route']['params']['join_year']}
+      </Text>
+      <DisplayField name = 'Sleep Quality' desc = { props['route']['params']['sleep_quality'] }></DisplayField>
+      <DisplayField name = 'Average Bedtime' desc= { props['route']['params']['average_bedtime'] }></DisplayField>
+      <DisplayField name='Average Wakeup' desc={props['route']['params']['average_wakeup']}></DisplayField>
+      </React.Fragment>
+  }
+
   return (
     <LinearGradient
       colors={['rgba(0, 51, 102, 1)', 'rgba(41, 43, 44, 1)']}
@@ -32,26 +55,8 @@ const RoomieInfo = (props) => {
             marginTop: 32,
             fontWeight: '600'
           }}
-          >{props['route']['params']['first_name'] + ' ' + props['route']['params']['last_name']}</Text>
-          <Text style={{
-            color: '#f7f7f7',
-            marginTop: 8,
-            marginBottom: 32,
-          }}>
-            Joined {props['route']['params']['join_month']} {props['route']['params']['join_year']}
-          </Text>
-          <DisplayField
-            name='Sleep Quality'
-            desc={props['route']['params']['sleep_quality']}
-          />
-          <DisplayField
-            name='Average Bedtime'
-            desc={props['route']['params']['average_bedtime']}
-          />
-          <DisplayField
-            name='Average Wakeup'
-            desc={props['route']['params']['average_wakeup']}
-          />
+          >{props['route']['params']['first_name'] + ' ' + (props['route']['params']['middle_name'] === '' ? '' : props['route']['params']['middle_name'] + ' ') + props['route']['params']['last_name']}</Text>
+          {displayField}
         </View>
       </ScrollView>
     </LinearGradient>

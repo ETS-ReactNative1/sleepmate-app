@@ -120,10 +120,10 @@ export default class Roomies extends React.Component {
                     key={`contact-${id}`}
                     image={link}
                     width={width * 0.9 - (this.state.controlWidth._value !== 0 ? 0 : (this.state.started ? (72) / 2 : 0))}
-                    sleeping_opacity={sleeping_status === 'sleeping' ? 1 : 0}
+                    sleeping_opacity={sleeping_status === 'sleeping' && friendship_status === 'friended' ? 1 : 0}
                     style={{ flex: 1 }}
                     size={75}
-                    name={`${first_name} ${last_name}` + (sleeping_status === 'sleeping' ? ' (Sleeping)' : '')}
+                    name={`${first_name} ` + (middle_name === '' ? '' : middle_name + ' ') + `${last_name}` + (friendship_status === 'pending' ? ' (Pending)' : (sleeping_status === 'sleeping' ? ' (Sleeping)' : ''))}
                     onPress={() =>
                       this.props.navigation.navigate('RoomieInfo', { id, first_name, middle_name, last_name, link, join_year, join_month, sleeping_status, friendship_status, sleep_quality, average_bedtime, average_wakeup })}
                   />

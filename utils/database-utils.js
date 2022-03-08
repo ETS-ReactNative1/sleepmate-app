@@ -66,12 +66,14 @@ function getProfilesDatabase() {
   deleteItem(profilesDB, 'Profiles', 'id=3');
   insertItem(profilesDB, 'Profiles', 'id, first_name, last_name, profile_pic, friendship_status, sleeping_status', '1, "Aaron", "Han", "aaron.jpg", "friended", "sleeping"',
     "where not exists(select 1 from Profiles where id = 1)");
-  insertItem(profilesDB, 'Profiles', 'id, first_name, last_name, profile_pic, friendship_status', '2, "Derek", "Chung", "derek.jpg", "friended"',
+  insertItem(profilesDB, 'Profiles', 'id, first_name, last_name, profile_pic, friendship_status, sleep_quality', '2, "Derek", "Chung", "derek.jpg", "friended", "Heavy Sleeper"',
     "where not exists(select 1 from Profiles where id = 2)");
-  insertItem(profilesDB, 'Profiles', 'id, first_name, last_name, profile_pic, friendship_status', '3, "Michelle", "Xu", "michelle.jpg", "friended"',
+  insertItem(profilesDB, 'Profiles', 'id, first_name, last_name, profile_pic, friendship_status, average_bedtime, average_wakeup', '3, "Michelle", "Xu", "michelle.jpg", "friended", "12:00 AM", "9:00 AM"',
     "where not exists(select 1 from Profiles where id = 3)");
   insertItem(profilesDB, 'Profiles', 'id, first_name, last_name', '4, "Not", "Friend"',
     "where not exists(select 1 from Profiles where id = 4)");
+  insertItem(profilesDB, 'Profiles', 'id, first_name, middle_name, last_name, friendship_status', '5, "Has", "No", "Friends", "pending"',
+    "where not exists(select 1 from Profiles where id = 5)");
   profilesDB.transaction((tx) => {
     tx.executeSql(
       `select * from Profiles where friendship_status = "friended" or friendship_status = "pending" order by friendship_status, last_name`,
