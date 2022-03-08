@@ -15,7 +15,6 @@ import ProfileEdit from './screens/ProfileEdit'
 import Awake from './screens/Awake'
 import Asleep from './screens/Asleep'
 import RoomieInfo from './screens/RoomieInfo'
-import * as SQLite from 'expo-sqlite'
 import { getProfilesDatabase } from './utils/database-utils'
 
 getProfilesDatabase();

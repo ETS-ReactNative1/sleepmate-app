@@ -64,6 +64,8 @@ function getProfilesDatabase() {
   deleteItem(profilesDB, 'Profiles', 'id=1');
   deleteItem(profilesDB, 'Profiles', 'id=2');
   deleteItem(profilesDB, 'Profiles', 'id=3');
+  deleteItem(profilesDB, 'Profiles', 'id=4');
+  deleteItem(profilesDB, 'Profiles', 'id=5');
   insertItem(profilesDB, 'Profiles', 'id, first_name, last_name, profile_pic, friendship_status, sleeping_status', '1, "Aaron", "Han", "aaron.jpg", "friended", "sleeping"',
     "where not exists(select 1 from Profiles where id = 1)");
   insertItem(profilesDB, 'Profiles', 'id, first_name, last_name, profile_pic, friendship_status, sleep_quality', '2, "Derek", "Chung", "derek.jpg", "friended", "Heavy Sleeper"',

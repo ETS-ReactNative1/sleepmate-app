@@ -8,26 +8,41 @@ import DisplayField from '../components/DisplayField'
 
 const RoomieInfo = (props) => {
   console.log(props['route']);
-  let displayField = <Text style={{
-    color: '#f7f7f7',
-    marginTop: 8,
-    marginBottom: 32,
-  }}>
-    Status: Pending
-  </Text>;
-  if (props['route']['params']['friendship_status'] === 'friended') {
-    displayField =
-      <React.Fragment>
+  let displayField =
+    <React.Fragment>
+      <Text style={{
+        color: '#f7f7f7',
+        marginTop: 8,
+      }}>
+        Status: Pending
+      </Text>
       <Text style={{
         color: '#f7f7f7',
         marginTop: 8,
         marginBottom: 32,
       }}>
-        Joined {props['route']['params']['join_month']} {props['route']['params']['join_year']}
+        ID: {props['route']['params']['id']}
       </Text>
-      <DisplayField name = 'Sleep Quality' desc = { props['route']['params']['sleep_quality'] }></DisplayField>
-      <DisplayField name = 'Average Bedtime' desc= { props['route']['params']['average_bedtime'] }></DisplayField>
-      <DisplayField name='Average Wakeup' desc={props['route']['params']['average_wakeup']}></DisplayField>
+    </React.Fragment>;
+  if (props['route']['params']['friendship_status'] === 'friended') {
+    displayField =
+      <React.Fragment>
+        <Text style={{
+          color: '#f7f7f7',
+          marginTop: 8,
+        }}>
+          Joined {props['route']['params']['join_month']} {props['route']['params']['join_year']}
+        </Text>
+        <Text style={{
+          color: '#f7f7f7',
+          marginTop: 8,
+          marginBottom: 32,
+        }}>
+          ID: {props['route']['params']['id']}
+        </Text>
+        <DisplayField name='Sleep Quality' desc={props['route']['params']['sleep_quality']}></DisplayField>
+        <DisplayField name='Average Bedtime' desc={props['route']['params']['average_bedtime']}></DisplayField>
+        <DisplayField name='Average Wakeup' desc={props['route']['params']['average_wakeup']}></DisplayField>
       </React.Fragment>
   }
 

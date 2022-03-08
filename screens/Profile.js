@@ -37,9 +37,15 @@ const Profile = ({ navigation }) => {
           <Text style={{
             color: '#f7f7f7',
             marginTop: 8,
-            marginBottom: 32,
           }}>
             Joined February 2022
+          </Text>
+          <Text style={{
+            color: '#f7f7f7',
+            marginTop: 8,
+            marginBottom: 32,
+          }}>
+            ID: 0
           </Text>
           <DisplayField
             name='Sleep Quality'
