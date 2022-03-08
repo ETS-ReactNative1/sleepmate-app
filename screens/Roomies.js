@@ -23,48 +23,14 @@ function createRemoveDialogue(props) {
       {
         text: "OK", onPress: () => {
           updateItem(database, 'Profiles', 'friendship_status="unfriended"', `id=${props['id']}`);
+          props['editMode']();
           props['onRemove']();
         }
       }
     ]
   )
 }
-const Roommates = (props) => {
-  console.log(props);
-  if (props.data === null || props.data.length === 0) {
-    return null;
-  }
-  return (
-    props.data.map(({ id, first_name, middle_name, last_name, profile_pic, join_year, join_month, sleeping_status, friendship_status, sleep_quality, average_bedtime, average_wakeup }) => (
-      <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }} key={id}>
-        <Animated.View key={`minus-container-${id}`} style={{
-          opacity: props.opacity,
-          
-          flex: 1,
-        }}>
-          <IconButton iconName='remove-circle-outline' onPress={() => createRemoveDialogue({ id, first_name, middle_name, last_name, onRemove: props.onRemove, editMode: props.editMode })} />
-        </Animated.View>
-        <Animated.View key={`space-container-${id}`} style={{ flex: 1, width: props.width.interpolate({ inputRange: [0, 1], outputRange: ['100%', '0%']}) }}></Animated.View>
-        {IMAGES.filter(item => item.name === profile_pic).map(({ name, link }) => (
-          <Animated.View key={`contact-container-${id}`} style={{ flex: 1 }}>
-            <ContactButton
-              key={`contact-${id}`}
-              image={link}
-              sleeping_opacity={sleeping_status === 'sleeping' ? 1 : 0}
-              style={{ flex: 1 }}
-              size={75}
-              name={`${first_name} ${last_name}` + (sleeping_status === 'sleeping' ? ' (Sleeping)' : '')}
-              onPress={() =>
-                props.navigation.navigate('RoomieInfo', { id, first_name, middle_name, last_name, link, join_year, join_month, sleeping_status, friendship_status, sleep_quality, average_bedtime, average_wakeup })}
-            />
-          </Animated.View>
-        ))}
 
-      </View>
-    )
-    )
-  );
-}
 export default class Roomies extends React.Component {
   constructor(props) {
     super(props);
@@ -153,7 +119,7 @@ export default class Roomies extends React.Component {
                   <ContactButton
                     key={`contact-${id}`}
                     image={link}
-                    width={width * 0.9 - (this.state.controlWidth._value === 1 ? 0 : (this.state.started ? (72) / 2 : 0))}
+                    width={width * 0.9 - (this.state.controlWidth._value !== 0 ? 0 : (this.state.started ? (72) / 2 : 0))}
                     sleeping_opacity={sleeping_status === 'sleeping' ? 1 : 0}
                     style={{ flex: 1 }}
                     size={75}
