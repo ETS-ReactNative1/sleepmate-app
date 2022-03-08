@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { contactButtons, styles, removeAnimation, iconButtons } from '../components/Styles'
 import { LinearGradient } from 'expo-linear-gradient'
-import { Text, View, Dimensions, Animated, Alert, Easing } from 'react-native'
+import { Text, View, Dimensions, Animated, Alert, Easing, ScrollView } from 'react-native'
 import ContactButton from '../components/ContactButton'
 import { openDatabase, updateItem } from '../utils/database-utils'
 import EditButton from '../components/EditButton'
@@ -95,7 +95,7 @@ export default class Roomies extends React.Component {
           <Text style={styles.smallTitle}>ROOMMATES</Text>
           <IconButton iconName='add-circle-outline' onPress={() => { console.log(1) }} />
         </View>
-        <View style={[styles.container, { width: '90%', backgroundColor: 'rgba(0, 0, 0, 0)' }]}>
+        <ScrollView style={[styles.scrollView, { width: '90%', backgroundColor: 'rgba(0, 0, 0, 0)' }]}>
           {this.state.data.map(({ id, first_name, middle_name, last_name, profile_pic, join_year, join_month, sleeping_status, friendship_status, sleep_quality, average_bedtime, average_wakeup }) => (
             <View style={{ flexDirection: 'row', width: '100%', justifyContent: 'space-between', alignItems: 'center' }} key={id}>
               <Animated.View key={`minus-container-${id}`} style={{
@@ -130,7 +130,7 @@ export default class Roomies extends React.Component {
             </View>
           )
           )}
-        </View>
+        </ScrollView>
       </LinearGradient>
     );
   }
