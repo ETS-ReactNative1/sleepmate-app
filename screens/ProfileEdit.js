@@ -11,8 +11,9 @@ const ProfileEdit = ({ navigation }) => {
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState(null);
   const [items, setItems] = useState([
-    { label: 'Apple', value: 'apple' },
-    { label: 'Banana', value: 'banana' }
+    { label: 'Light Sleeper', value: 'Light Sleeper' },
+    { label: 'Moderate Sleeper', value: 'Moderate Sleeper' },
+    { label: 'Heavy Sleeper', value: 'Heavy Sleeper' }
   ])
   return (
     <LinearGradient
@@ -25,7 +26,7 @@ const ProfileEdit = ({ navigation }) => {
         leftPage='Profile'
       />
       <ScrollView style={styles.scrollView}>
-        <View style={{ display: 'flex', alignItems: 'center' }}>
+        <View style={{ display: 'flex', alignItems: 'center', overflow: 'visible'}}>
           <BorderedPic
             size={150}
             image={require('../images/tristan.png')}
@@ -53,7 +54,6 @@ const ProfileEdit = ({ navigation }) => {
           }}>
             ID: 0
           </Text>
-          <View>
             <DropDownPicker
               open={open}
               value={value}
@@ -64,7 +64,8 @@ const ProfileEdit = ({ navigation }) => {
               placeholder="Select Sleep Quality"
               containerStyle={{
                 width: '90%',
-                marginBottom: 16,
+                marginBottom: open ? 60 : 16,
+                overflow: 'visible'
               }}
               style={{
                 backgroundColor: 'rgba(144, 172, 200, 0.25)',
@@ -83,8 +84,8 @@ const ProfileEdit = ({ navigation }) => {
               arrowColor={
                 '#f7f7f7'
               }
+              listMode="SCROLLVIEW"
             />
-          </View>
           <DisplayButton
             name='Save Changes'
             onPress={() => navigation.navigate('Profile', {sleep_quality: value})}

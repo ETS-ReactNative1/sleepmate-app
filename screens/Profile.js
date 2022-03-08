@@ -8,10 +8,11 @@ import BorderedPic from '../components/BorderedPic'
 import DisplayButton from '../components/DisplayButton'
 
 const Profile = ({ route, navigation }) => {
+  console.log(route);
   let sleepQualityText =
     <DisplayField
       name='Sleep Quality'
-      desc={route === undefined || !('sleep_quality' in route) || route['sleep_quality'] === null ? 'Not Specified' : route['sleep_quality']}
+      desc={route === undefined || !('params' in route) || route['params'] === undefined || !('sleep_quality' in route['params']) || route['params']['sleep_quality'] === null ? 'Not Specified' : route['params']['sleep_quality']}
     />
   return (
     <LinearGradient
