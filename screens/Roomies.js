@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { contactButtons, styles, removeAnimation, iconButtons } from '../components/Styles'
 import { LinearGradient } from 'expo-linear-gradient'
-import { Text, View, Dimensions, Animated, Pressable, Alert } from 'react-native'
+import { Text, View, Dimensions, Animated, Alert, Easing } from 'react-native'
 import ContactButton from '../components/ContactButton'
 import { openDatabase, updateItem } from '../utils/database-utils'
 import EditButton from '../components/EditButton'
@@ -30,32 +30,34 @@ function createRemoveDialogue(props) {
   )
 }
 const Roommates = (props) => {
+  console.log(props);
   if (props.data === null || props.data.length === 0) {
     return null;
   }
   return (
     props.data.map(({ id, first_name, middle_name, last_name, profile_pic, join_year, join_month, sleeping_status, friendship_status, sleep_quality, average_bedtime, average_wakeup }) => (
-      <View style={{ flexDirection: 'row', width: '90%', justifyContent: 'space-between', alignItems: 'center' }} key={id}>
-        <Animated.View key={id} style={{
-          opacity: props.width,
-          width: props.width,
+      <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }} key={id}>
+        <Animated.View key={`minus-container-${id}`} style={{
+          opacity: props.opacity,
+          
           flex: 1,
         }}>
           <IconButton iconName='remove-circle-outline' onPress={() => createRemoveDialogue({ id, first_name, middle_name, last_name, onRemove: props.onRemove, editMode: props.editMode })} />
         </Animated.View>
-        <Animated.View style={[props.width === 0 ? { width: 0 } : { width: Dimensions.get('window').width * 0.05 }, { flex: 1 }]}></Animated.View>
+        <Animated.View key={`space-container-${id}`} style={{ flex: 1, width: props.width.interpolate({ inputRange: [0, 1], outputRange: ['100%', '0%']}) }}></Animated.View>
         {IMAGES.filter(item => item.name === profile_pic).map(({ name, link }) => (
-          <ContactButton
-            key={id}
-            image={link}
-            sleeping_opacity={sleeping_status === 'sleeping' ? 1 : 0}
-            width={Dimensions.get('window').width * 0.9 - (props.width === 0 ? 0 : (props.width + 36 + Dimensions.get('window').width * 0.05))}
-            style={{ flex: 1 }}
-            size={75}
-            name={`${first_name} ${last_name}` + (sleeping_status === 'sleeping' ? ' (Sleeping)' : '')}
-            onPress={() =>
-              props.navigation.navigate('RoomieInfo', { id, first_name, middle_name, last_name, link, join_year, join_month, sleeping_status, friendship_status, sleep_quality, average_bedtime, average_wakeup })}
-          />
+          <Animated.View key={`contact-container-${id}`} style={{ flex: 1 }}>
+            <ContactButton
+              key={`contact-${id}`}
+              image={link}
+              sleeping_opacity={sleeping_status === 'sleeping' ? 1 : 0}
+              style={{ flex: 1 }}
+              size={75}
+              name={`${first_name} ${last_name}` + (sleeping_status === 'sleeping' ? ' (Sleeping)' : '')}
+              onPress={() =>
+                props.navigation.navigate('RoomieInfo', { id, first_name, middle_name, last_name, link, join_year, join_month, sleeping_status, friendship_status, sleep_quality, average_bedtime, average_wakeup })}
+            />
+          </Animated.View>
         ))}
 
       </View>
@@ -69,9 +71,10 @@ export default class Roomies extends React.Component {
 
     this.state = {
       data: [],
+      started: false,
       editMode: false,
       controlOpacity: new Animated.Value(0),
-      controlWidth: new Animated.Value(0)
+      controlWidth: new Animated.Value(0),
     }
     this.state.controlOpacity.addListener(({ value }) => this._value = value);
     this.state.controlWidth.addListener(({ value }) => this._value = value);
@@ -99,22 +102,24 @@ export default class Roomies extends React.Component {
   toggleEditMode() {
     if (!this.state.editMode) {
       Animated.parallel([
-        Animated.timing(this.state.controlOpacity, { toValue: 1, duration: (1 - this.controlOpacity) * 600, useNativeDriver: true }),
-        Animated.timing(this.state.controlWidth, { toValue: 36, duration: (36 - this.controlWidth) / 36.0 * 600, useNativeDriver: true })
+        Animated.timing(this.state.controlOpacity, { toValue: 1, duration: 300, useNativeDriver: true }),
+        Animated.timing(this.state.controlWidth, { toValue: 1, duration: 300, easing: Easing.linear, useNativeDriver: true })
       ]).start();
     } else {
       Animated.parallel([
-        Animated.timing(this.state.controlOpacity, { toValue: 0, duration: (this.controlOpacity) * 600, useNativeDriver: true }),
-        Animated.timing(this.state.controlWidth, { toValue: 0, duration: (this.controlWidth / 36.0) * 600, useNativeDriver: true })
+        Animated.timing(this.state.controlOpacity, { toValue: 0, duration: 300, useNativeDriver: true }),
+        Animated.timing(this.state.controlWidth, { toValue: 0, duration: 300, easing: Easing.linear, useNativeDriver: true })
       ]).start();
     }
 
     this.setState({
-      editMode: !this.state.editMode
+      editMode: !this.state.editMode,
+      started: true
     });
   }
 
   render() {
+    const width = Dimensions.get('window').width;
     return (
       <LinearGradient
         colors={['rgba(0, 51, 102, 1)', 'rgba(41, 43, 44, 1)']}
@@ -124,16 +129,44 @@ export default class Roomies extends React.Component {
           <Text style={styles.smallTitle}>ROOMMATES</Text>
           <IconButton iconName='add-circle-outline' onPress={() => { console.log(1) }} />
         </View>
-        <View style={[styles.container, { width: '100%', backgroundColor: 'rgba(0, 0, 0, 0)' }]}>
-          <Roommates
-            opacity={this.state.controlOpacity._value}
-            width={this.state.controlWidth._value}
-            navigation={this.props.navigation}
-            data={this.state.data}
-            onRemove={this.getData.bind(this)}
-            editMode={this.toggleEditMode.bind(this)}
-          >
-          </Roommates>
+        <View style={[styles.container, { width: '90%', backgroundColor: 'rgba(0, 0, 0, 0)' }]}>
+          {this.state.data.map(({ id, first_name, middle_name, last_name, profile_pic, join_year, join_month, sleeping_status, friendship_status, sleep_quality, average_bedtime, average_wakeup }) => (
+            <View style={{ flexDirection: 'row', width: '100%', justifyContent: 'space-between', alignItems: 'center' }} key={id}>
+              <Animated.View key={`minus-container-${id}`} style={{
+                opacity: this.state.controlOpacity,
+                transform: [{
+                  translateX: this.state.controlWidth.interpolate({inputRange: [0, 1], outputRange: [-72, 0]})
+                }],
+              }}>
+                <IconButton iconName='remove-circle-outline' onPress={() => createRemoveDialogue({ id, first_name, middle_name, last_name, onRemove: this.getData.bind(this), editMode: this.toggleEditMode.bind(this) })} />
+              </Animated.View>
+              {IMAGES.filter(item => item.name === profile_pic).map(({ name, link }) => (
+                <Animated.View key={`contact-container-${id}`} style={{
+                  transform: [{
+
+                    scaleX: this.state.controlWidth.interpolate({ inputRange: [0, 1], outputRange: [1, 1 - (72 / width / 0.9)] })
+                  }, {
+                      translateX: this.state.controlWidth.interpolate({ inputRange: [0, 1], outputRange: [-72, 0]})
+                    }
+                  ],
+                }}>
+                  <ContactButton
+                    key={`contact-${id}`}
+                    image={link}
+                    width={width * 0.9 - (this.state.controlWidth._value === 1 ? 0 : (this.state.started ? (72) / 2 : 0))}
+                    sleeping_opacity={sleeping_status === 'sleeping' ? 1 : 0}
+                    style={{ flex: 1 }}
+                    size={75}
+                    name={`${first_name} ${last_name}` + (sleeping_status === 'sleeping' ? ' (Sleeping)' : '')}
+                    onPress={() =>
+                      this.props.navigation.navigate('RoomieInfo', { id, first_name, middle_name, last_name, link, join_year, join_month, sleeping_status, friendship_status, sleep_quality, average_bedtime, average_wakeup })}
+                  />
+                </Animated.View>
+              ))}
+
+            </View>
+          )
+          )}
         </View>
       </LinearGradient>
     );
