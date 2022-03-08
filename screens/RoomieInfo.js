@@ -18,7 +18,6 @@ const RoomieInfo = (props) => {
       </Text>
       <Text style={{
         color: '#f7f7f7',
-        marginTop: 8,
         marginBottom: 32,
       }}>
         ID: {props['route']['params']['id']}
@@ -35,7 +34,6 @@ const RoomieInfo = (props) => {
         </Text>
         <Text style={{
           color: '#f7f7f7',
-          marginTop: 8,
           marginBottom: 32,
         }}>
           ID: {props['route']['params']['id']}

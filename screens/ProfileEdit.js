@@ -49,7 +49,6 @@ const ProfileEdit = ({ navigation }) => {
           </Text>
           <Text style={{
             color: '#f7f7f7',
-            marginTop: 8,
             marginBottom: 32,
           }}>
             ID: 0
