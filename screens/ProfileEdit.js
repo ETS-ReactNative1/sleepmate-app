@@ -43,9 +43,15 @@ const ProfileEdit = ({ navigation }) => {
           <Text style={{
             color: '#f7f7f7',
             marginTop: 8,
-            marginBottom: 32,
           }}>
             Joined February 2022
+          </Text>
+          <Text style={{
+            color: '#f7f7f7',
+            marginTop: 8,
+            marginBottom: 32,
+          }}>
+            ID: 0
           </Text>
           <View>
             <DropDownPicker
@@ -81,7 +87,7 @@ const ProfileEdit = ({ navigation }) => {
           </View>
           <DisplayButton
             name='Save Changes'
-            onPress={() => navigation.navigate('Profile')}
+            onPress={() => navigation.navigate('Profile', {sleep_quality: value})}
           />
         </View>
       </ScrollView>

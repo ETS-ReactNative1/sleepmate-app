@@ -7,7 +7,12 @@ import Header from '../components/Header'
 import BorderedPic from '../components/BorderedPic'
 import DisplayButton from '../components/DisplayButton'
 
-const Profile = ({ navigation }) => {
+const Profile = ({ route, navigation }) => {
+  let sleepQualityText =
+    <DisplayField
+      name='Sleep Quality'
+      desc={route === undefined || !('sleep_quality' in route) || route['sleep_quality'] === null ? 'Not Specified' : route['sleep_quality']}
+    />
   return (
     <LinearGradient
       colors={['rgba(0, 51, 102, 1)', 'rgba(41, 43, 44, 1)']}
@@ -47,10 +52,7 @@ const Profile = ({ navigation }) => {
           }}>
             ID: 0
           </Text>
-          <DisplayField
-            name='Sleep Quality'
-            desc='Not Specified'
-          />
+          {sleepQualityText}
           <DisplayField
             name='Average Bedtime'
             desc='Not Enough Data'
