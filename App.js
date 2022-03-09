@@ -15,6 +15,7 @@ import ProfileEdit from './screens/ProfileEdit'
 import Awake from './screens/Awake'
 import Asleep from './screens/Asleep'
 import RoomieInfo from './screens/RoomieInfo'
+import RoomieAdd from './screens/RoomieAdd'
 import { getProfilesDatabase } from './utils/database-utils'
 
 getProfilesDatabase();
@@ -26,6 +27,7 @@ function RoomiesStackScreen() {
     <RoomiesStack.Navigator>
       <RoomiesStack.Screen name='Roomies' component={Roomies} options={{ headerShown: false }} />
       <RoomiesStack.Screen name='RoomieInfo' component={RoomieInfo} options={{ headerShown: false }} />
+      <RoomiesStack.Screen name='RoomieAdd' component={RoomieAdd} options={{headerShown: false}} />
     </RoomiesStack.Navigator>
   )
 }

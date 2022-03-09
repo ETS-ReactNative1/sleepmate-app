@@ -248,4 +248,15 @@ const removeAnimation = StyleSheet.create({
   }
 })
 
-export { styles, solidButtons, fillButtons, iconButtons, contactButtons, borderedPics, displayFields, displayButtons, editButton, chatBubbles, removeAnimation }
+const searchBar = StyleSheet.create({
+  containerStyle: {
+    backgroundColor: 'rgba(0, 0, 0, 0)',
+    width: '90%',
+    borderBottomColor: 'transparent',
+    borderTopColor: 'transparent'
+  },
+  inputContainerStyle: {
+    backgroundColor: 'rgba(144, 172, 200, 0.25)'
+  }
+})
+export { styles, solidButtons, fillButtons, iconButtons, contactButtons, borderedPics, displayFields, displayButtons, editButton, chatBubbles, removeAnimation, searchBar }

@@ -59,7 +59,6 @@ export default class Roomies extends React.Component {
           this.setState({
             data: _array,
           });
-          console.log(_array);
         }
       );
     });
@@ -94,7 +93,7 @@ export default class Roomies extends React.Component {
         <View style={styles.headerContainer}>
           <IconButton iconName='ellipsis-vertical-circle-outline' onPress={() => this.toggleEditMode()} />
           <Text style={styles.smallTitle}>ROOMMATES</Text>
-          <IconButton iconName='add-circle-outline' onPress={() => { console.log(1) }} />
+          <IconButton iconName='add-circle-outline' onPress={() => { this.props.navigation.navigate('RoomieAdd') }} />
         </View>
         <ScrollView style={[styles.scrollView, { width: '90%', backgroundColor: 'rgba(0, 0, 0, 0)' }]}>
           {this.state.data.map(({ id, first_name, middle_name, last_name, profile_pic, join_year, join_month, sleeping_status, friendship_status, sleep_quality, average_bedtime, average_wakeup, username }) => (
