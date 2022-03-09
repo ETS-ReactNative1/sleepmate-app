@@ -14,6 +14,11 @@ const Profile = ({ route, navigation }) => {
       name='Sleep Quality'
       desc={route === undefined || !('params' in route) || route['params'] === undefined || !('sleep_quality' in route['params']) || route['params']['sleep_quality'] === null ? 'Not Specified' : route['params']['sleep_quality']}
     />
+  let notifyAfterText =
+    <DisplayField
+      name='Notify After'
+      desc={route === undefined || !('params' in route) || route['params'] === undefined || !('notify_after' in route['params']) || route['params']['notify_after'] === null ? 'Not Specified' : route['params']['notify_after']}
+    />
   return (
     <LinearGradient
       colors={['rgba(0, 51, 102, 1)', 'rgba(41, 43, 44, 1)']}
@@ -61,6 +66,7 @@ const Profile = ({ route, navigation }) => {
             name='Average Wakeup'
             desc='Not Enough Data'
           />
+          {notifyAfterText}
           <DisplayButton
             name='Edit Preferences'
             onPress={() => navigation.navigate('ProfileEdit')}

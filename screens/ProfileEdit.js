@@ -1,20 +1,69 @@
 import React, { useState } from 'react'
-import { Text, ScrollView, View } from 'react-native'
+import { Text, ScrollView, View, Switch } from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient'
-import { styles } from '../components/Styles'
+import { styles, displayFields } from '../components/Styles'
 import Header from '../components/Header'
 import BorderedPic from '../components/BorderedPic'
 import DisplayButton from '../components/DisplayButton'
 import DropDownPicker from 'react-native-dropdown-picker'
 
 const ProfileEdit = ({ navigation }) => {
-  const [open, setOpen] = useState(false);
-  const [value, setValue] = useState(null);
-  const [items, setItems] = useState([
+  const [sleepOpen, setSleepOpen] = useState(false)
+  const [sleepValue, setSleepValue] = useState(null)
+  const [sleepItems, setSleepItems] = useState([
     { label: 'Light Sleeper', value: 'Light Sleeper' },
     { label: 'Moderate Sleeper', value: 'Moderate Sleeper' },
     { label: 'Heavy Sleeper', value: 'Heavy Sleeper' }
   ])
+
+  const [notifyOpen, setNotifyOpen] = useState(false)
+  const [notifyValue, setNotifyValue] = useState(null)
+  const [notifyItems, setNotifyItems] = useState([
+    { label: '15 Minutes', value: '15 Minutes' },
+    { label: '30 Minutes', value: '30 Minutes' },
+    { label: '60 Minutes', value: '60 Minutes' }
+  ])
+
+  let notifyPicker = <DropDownPicker
+    open={notifyOpen}
+    value={notifyValue}
+    items={notifyItems}
+    setOpen={setNotifyOpen}
+    setValue={setNotifyValue}
+    setItems={setNotifyItems}
+    placeholder="Notify After"
+    containerStyle={{
+      width: '90%',
+      marginBottom: notifyOpen ? 137 : 16,
+      overflow: 'visible'
+    }}
+    style={{
+      backgroundColor: 'rgba(144, 172, 200, 0.25)',
+      borderColor: 'transparent',
+    }}
+    dropDownContainerStyle={{
+      backgroundColor: 'rgba(144, 172, 200, 0.25)',
+      borderColor: 'transparent'
+    }}
+    textStyle={{
+      color: '#f7f7f7'
+    }}
+    labelStyle={{
+      color: '#f7f7f7'
+    }}
+    arrowIconContainerStyle={{
+      color: '#f7f7f7'
+    }}
+    arrowIconStyle={{
+      color: '#f7f7f7'
+    }}
+    arrowStyle={{ color: '#f7f7f7' }}
+    listMode="SCROLLVIEW"
+  />
+
+  const [isEnabled, setIsEnabled] = useState(false)
+  const toggleSwitch = () => setIsEnabled(previousState => !previousState)
+
   return (
     <LinearGradient
       colors={['rgba(0, 51, 102, 1)', 'rgba(41, 43, 44, 1)']}
@@ -26,7 +75,7 @@ const ProfileEdit = ({ navigation }) => {
         leftPage='Profile'
       />
       <ScrollView style={styles.scrollView}>
-        <View style={{ display: 'flex', alignItems: 'center', overflow: 'visible'}}>
+        <View style={{ display: 'flex', alignItems: 'center', overflow: 'visible' }}>
           <BorderedPic
             size={150}
             image={require('../images/tristan.png')}
@@ -53,41 +102,57 @@ const ProfileEdit = ({ navigation }) => {
           }}>
             ID: 0
           </Text>
-            <DropDownPicker
-              open={open}
-              value={value}
-              items={items}
-              setOpen={setOpen}
-              setValue={setValue}
-              setItems={setItems}
-              placeholder="Select Sleep Quality"
-              containerStyle={{
-                width: '90%',
-                marginBottom: open ? 60 : 16,
-                overflow: 'visible'
-              }}
-              style={{
-                backgroundColor: 'rgba(144, 172, 200, 0.25)',
-                borderColor: 'transparent'
-              }}
-              dropDownContainerStyle={{
-                backgroundColor: 'rgba(144, 172, 200, 0.25)',
-                borderColor: 'transparent'
-              }}
-              textStyle={{
-                color: '#f7f7f7'
-              }}
-              labelStyle={{
-                color: '#f7f7f7'
-              }}
-              arrowColor={
-                '#f7f7f7'
-              }
-              listMode="SCROLLVIEW"
+          <DropDownPicker
+            open={sleepOpen}
+            value={sleepValue}
+            items={sleepItems}
+            setOpen={setSleepOpen}
+            setValue={setSleepValue}
+            setItems={setSleepItems}
+            placeholder="Select Sleep Quality"
+            containerStyle={{
+              width: '90%',
+              marginBottom: sleepOpen ? 137 : 16,
+              overflow: 'visible'
+            }}
+            style={{
+              backgroundColor: 'rgba(144, 172, 200, 0.25)',
+              borderColor: 'transparent',
+            }}
+            dropDownContainerStyle={{
+              backgroundColor: 'rgba(144, 172, 200, 0.25)',
+              borderColor: 'transparent'
+            }}
+            textStyle={{
+              color: '#f7f7f7'
+            }}
+            labelStyle={{
+              color: '#f7f7f7'
+            }}
+            arrowIconContainerStyle={{
+              color: '#f7f7f7'
+            }}
+            arrowIconStyle={{
+              color: '#f7f7f7'
+            }}
+            arrowStyle={{ color: '#f7f7f7' }}
+            listMode="SCROLLVIEW"
+          />
+          <View style={displayFields.field}>
+            <Text style={styles.chartHeading}>Notify Roommates</Text>
+            <Switch
+              trackColor={{ false: "#003366", true: "rgb(172, 200, 144, 0.3)" }}
+              thumbColor={isEnabled ? "#f7f7f7" : "#f7f7f7"}
+              ios_backgroundColor="transparent"
+              onValueChange={toggleSwitch}
+              value={isEnabled}
+              style={{ margin: 0, padding: 0 }}
             />
+          </View>
+          {isEnabled ? notifyPicker : null}
           <DisplayButton
             name='Save Changes'
-            onPress={() => navigation.navigate('Profile', {sleep_quality: value})}
+            onPress={() => navigation.navigate('Profile', { sleep_quality: sleepValue, notify_after: notifyValue })}
           />
         </View>
       </ScrollView>
