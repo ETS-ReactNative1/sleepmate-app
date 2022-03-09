@@ -20,7 +20,7 @@ const RoomieInfo = (props) => {
         color: '#f7f7f7',
         marginBottom: 32,
       }}>
-        ID: {props['route']['params']['id']}
+        Username: {props['route']['params']['username']}
       </Text>
     </React.Fragment>;
   if (props['route']['params']['friendship_status'] === 'friended') {
@@ -36,7 +36,7 @@ const RoomieInfo = (props) => {
           color: '#f7f7f7',
           marginBottom: 32,
         }}>
-          ID: {props['route']['params']['id']}
+          Username: {props['route']['params']['username']}
         </Text>
         <DisplayField name='Sleep Quality' desc={props['route']['params']['sleep_quality']}></DisplayField>
         <DisplayField name='Average Bedtime' desc={props['route']['params']['average_bedtime']}></DisplayField>

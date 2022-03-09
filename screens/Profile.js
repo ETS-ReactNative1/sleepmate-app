@@ -69,7 +69,7 @@ const Profile = ({ route, navigation }) => {
             color: '#f7f7f7',
             marginBottom: 32,
           }}>
-            ID: 0
+            Username: tristan_wang_12345
           </Text>
           {sleepQualityText}
           <DisplayField

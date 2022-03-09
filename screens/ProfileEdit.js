@@ -108,7 +108,7 @@ const ProfileEdit = ({ route, navigation }) => {
             color: '#f7f7f7',
             marginBottom: 32,
           }}>
-            ID: 0
+            Username: tristan_wang_12345
           </Text>
           <Text style={[styles.subtitle, {marginTop: 0, marginBottom: 8, width: '88%', alignSelf: 'center'}]}>Sleep Quality</Text>
           <DropDownPicker

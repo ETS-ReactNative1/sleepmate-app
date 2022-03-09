@@ -59,6 +59,7 @@ export default class Roomies extends React.Component {
           this.setState({
             data: _array,
           });
+          console.log(_array);
         }
       );
     });
@@ -96,7 +97,7 @@ export default class Roomies extends React.Component {
           <IconButton iconName='add-circle-outline' onPress={() => { console.log(1) }} />
         </View>
         <ScrollView style={[styles.scrollView, { width: '90%', backgroundColor: 'rgba(0, 0, 0, 0)' }]}>
-          {this.state.data.map(({ id, first_name, middle_name, last_name, profile_pic, join_year, join_month, sleeping_status, friendship_status, sleep_quality, average_bedtime, average_wakeup }) => (
+          {this.state.data.map(({ id, first_name, middle_name, last_name, profile_pic, join_year, join_month, sleeping_status, friendship_status, sleep_quality, average_bedtime, average_wakeup, username }) => (
             <View style={{ flexDirection: 'row', width: '100%', justifyContent: 'space-between', alignItems: 'center' }} key={id}>
               <Animated.View key={`minus-container-${id}`} style={{
                 opacity: this.state.controlOpacity,
@@ -122,7 +123,7 @@ export default class Roomies extends React.Component {
                     size={75}
                     name={`${first_name} ` + (middle_name === '' ? '' : middle_name + ' ') + `${last_name}` + (friendship_status === 'pending' ? ' (Pending)' : (sleeping_status === 'sleeping' ? ' (Sleeping)' : ''))}
                     onPress={() =>
-                      this.props.navigation.navigate('RoomieInfo', { id, first_name, middle_name, last_name, link, join_year, join_month, sleeping_status, friendship_status, sleep_quality, average_bedtime, average_wakeup })}
+                      this.props.navigation.navigate('RoomieInfo', { id, first_name, middle_name, last_name, link, join_year, join_month, sleeping_status, friendship_status, sleep_quality, average_bedtime, average_wakeup, username })}
                   />
                 </Animated.View>
               ))}
