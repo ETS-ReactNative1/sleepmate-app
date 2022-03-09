@@ -101,6 +101,18 @@ const styles = StyleSheet.create({
     width: 50,
     height: 200,
     justifyContent: 'space-around'
+  },
+  searchBar: {
+    width: '90%',
+    height: 40,
+    borderRadius: 10,
+    marginBottom: 16,
+    backgroundColor: 'rgba(144, 172, 200, 0.3)'
+  },
+  textInput: {
+    width: '90%',
+    height: 40,
+    backgroundColor: 'rgba(144, 172, 200, 0.3)'
   }
 })
 
@@ -219,6 +231,14 @@ const chatBubbles = StyleSheet.create({
     marginLeft: 16,
     marginBottom: 16
   },
+  responseContainer: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    width: '100%',
+    paddingRight: 16,
+    marginBottom: 16
+  },
   name: {
     marginBottom: 8,
     color: '#f7f7f7',
@@ -229,6 +249,11 @@ const chatBubbles = StyleSheet.create({
     padding: 8,
     backgroundColor: 'rgba(144, 172, 200, 0.25)',
     borderRadius: 10
+  },
+  responseBubble: {
+    padding: 8,
+    backgroundColor: 'rgba(172, 200, 144, 0.3)',
+    borderRadius: 10,
   },
   text: {
     color: '#f7f7f7'

@@ -27,41 +27,41 @@ const ProfileEdit = ({ route, navigation }) => {
   let notifyPicker = <React.Fragment>
     <Text style={[styles.subtitle, { marginTop: 0, marginBottom: 8, width: '88%', alignSelf: 'center' }]}>Notify After</Text>
     <DropDownPicker
-    open={notifyOpen}
-    value={notifyValue}
-    items={notifyItems}
-    setOpen={setNotifyOpen}
-    setValue={setNotifyValue}
-    setItems={setNotifyItems}
-    placeholder="Notify After"
-    containerStyle={{
-      width: '90%',
-      marginBottom: notifyOpen ? 137 : 16,
-      overflow: 'visible'
-    }}
-    style={{
-      backgroundColor: 'rgba(144, 172, 200, 0.25)',
-      borderColor: 'transparent',
-    }}
-    dropDownContainerStyle={{
-      backgroundColor: 'rgba(144, 172, 200, 0.9)',
-      borderColor: 'transparent'
-    }}
-    textStyle={{
-      color: '#f7f7f7'
-    }}
-    labelStyle={{
-      color: '#f7f7f7'
-    }}
-    arrowIconContainerStyle={{
-      color: '#f7f7f7'
-    }}
-    arrowIconStyle={{
-      color: '#f7f7f7'
-    }}
-    arrowStyle={{ color: '#f7f7f7' }}
-    listMode="SCROLLVIEW"
-  /></React.Fragment>;
+      open={notifyOpen}
+      value={notifyValue}
+      items={notifyItems}
+      setOpen={setNotifyOpen}
+      setValue={setNotifyValue}
+      setItems={setNotifyItems}
+      placeholder="Notify After"
+      containerStyle={{
+        width: '90%',
+        marginBottom: notifyOpen ? 137 : 16,
+        overflow: 'visible'
+      }}
+      style={{
+        backgroundColor: 'rgba(144, 172, 200, 0.25)',
+        borderColor: 'transparent',
+      }}
+      dropDownContainerStyle={{
+        backgroundColor: 'rgba(144, 172, 200, 0.9)',
+        borderColor: 'transparent'
+      }}
+      textStyle={{
+        color: '#f7f7f7'
+      }}
+      labelStyle={{
+        color: '#f7f7f7'
+      }}
+      arrowIconContainerStyle={{
+        color: '#f7f7f7'
+      }}
+      arrowIconStyle={{
+        color: '#f7f7f7'
+      }}
+      arrowStyle={{ color: '#f7f7f7' }}
+      listMode="SCROLLVIEW"
+    /></React.Fragment>;
 
   const [isEnabled, setIsEnabled] = useState(!route['params']['notificationsOff']);
   const toggleSwitch = () => {
@@ -110,7 +110,7 @@ const ProfileEdit = ({ route, navigation }) => {
           }}>
             Username: tristan_wang_12345
           </Text>
-          <Text style={[styles.subtitle, {marginTop: 0, marginBottom: 8, width: '88%', alignSelf: 'center'}]}>Sleep Quality</Text>
+          <Text style={[styles.subtitle, { marginTop: 0, marginBottom: 8, width: '88%', alignSelf: 'center' }]}>Sleep Quality</Text>
           <DropDownPicker
             open={sleepOpen}
             value={sleepValue}
@@ -150,7 +150,7 @@ const ProfileEdit = ({ route, navigation }) => {
           <View style={displayFields.field}>
             <Text style={styles.chartHeading}>Notify Roommates</Text>
             <Switch
-              trackColor={{ false: "#003366", true: "rgb(172, 200, 144, 0.3)" }}
+              trackColor={{ false: "#003366", true: "rgba(172, 200, 144, 0.3)" }}
               thumbColor={isEnabled ? "#f7f7f7" : "#f7f7f7"}
               ios_backgroundColor="transparent"
               onValueChange={toggleSwitch}

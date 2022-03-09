@@ -2,7 +2,6 @@ import React from 'react'
 import { View, Text, Image } from 'react-native'
 import { chatBubbles, styles } from './Styles'
 import BorderedPic from './BorderedPic'
-import IconButton from './IconButton'
 
 const ChatBubbleOther = (props) => {
   const { name, image, text } = props
@@ -18,7 +17,7 @@ const ChatBubbleOther = (props) => {
           <Text style={chatBubbles.text}>{text}</Text>
         </View>
       </View>
-    </View >
+    </View>
   )
 }
 
