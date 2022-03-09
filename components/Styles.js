@@ -211,6 +211,30 @@ const editButton = StyleSheet.create({
   }
 })
 
+const chatBubbles = StyleSheet.create({
+  container: {
+    display: 'flex',
+    flexDirection: 'column',
+    width: '75%',
+    marginLeft: 20,
+    marginBottom: 16
+  },
+  name: {
+    marginBottom: 8,
+    color: '#f7f7f7',
+    fontWeight: 'bold'
+  },
+  bubble: {
+    flex: 2.5,
+    padding: 8,
+    backgroundColor: 'rgba(144, 172, 200, 0.25)',
+    borderRadius: 10
+  },
+  text: {
+    color: '#f7f7f7'
+  }
+})
+
 const removeAnimation = StyleSheet.create({
   animation: {
     flexDirection: 'row',
@@ -224,4 +248,4 @@ const removeAnimation = StyleSheet.create({
   }
 })
 
-export { styles, solidButtons, fillButtons, iconButtons, contactButtons, borderedPics, displayFields, displayButtons, editButton, removeAnimation }
+export { styles, solidButtons, fillButtons, iconButtons, contactButtons, borderedPics, displayFields, displayButtons, editButton, chatBubbles, removeAnimation }
