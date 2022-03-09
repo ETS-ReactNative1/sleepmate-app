@@ -7,7 +7,7 @@ import BorderedPic from '../components/BorderedPic'
 import DisplayButton from '../components/DisplayButton'
 import DropDownPicker from 'react-native-dropdown-picker'
 
-const ProfileEdit = ({ navigation }) => {
+const ProfileEdit = ({ route, navigation }) => {
   const [sleepOpen, setSleepOpen] = useState(false)
   const [sleepValue, setSleepValue] = useState(null)
   const [sleepItems, setSleepItems] = useState([
@@ -17,7 +17,7 @@ const ProfileEdit = ({ navigation }) => {
   ])
 
   const [notifyOpen, setNotifyOpen] = useState(false)
-  const [notifyValue, setNotifyValue] = useState(null)
+  const [notifyValue, setNotifyValue] = useState(route['params']['notificationsOff'] ? null : route['params']['notifyTime'])
   const [notifyItems, setNotifyItems] = useState([
     { label: '15 Minutes', value: '15 Minutes' },
     { label: '30 Minutes', value: '30 Minutes' },
@@ -59,10 +59,16 @@ const ProfileEdit = ({ navigation }) => {
     }}
     arrowStyle={{ color: '#f7f7f7' }}
     listMode="SCROLLVIEW"
-  />
+  />;
 
-  const [isEnabled, setIsEnabled] = useState(false)
-  const toggleSwitch = () => setIsEnabled(previousState => !previousState)
+  const [isEnabled, setIsEnabled] = useState(!route['params']['notificationsOff']);
+  const toggleSwitch = () => {
+    setIsEnabled(previousState => !previousState);
+    if (isEnabled) {
+      console.log(1);
+      setNotifyValue(null);
+    }
+  };
 
   return (
     <LinearGradient
