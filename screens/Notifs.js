@@ -1,5 +1,6 @@
 import React from 'react'
 import { ScrollView, View } from 'react-native'
+import { SearchBar } from 'react-native-elements'
 import { styles } from '../components/Styles'
 import Header from '../components/Header'
 import { LinearGradient } from 'expo-linear-gradient'
@@ -15,6 +16,10 @@ const Notifs = () => {
         pageName='NOTIFICATIONS'
         leftIcon='chevron-back-circle-outline'
         leftPage='Home'
+      />
+      <SearchBar
+        placeholder="Type Here..."
+        containerStyle={{ width: '100%' }}
       />
       <ScrollView style={styles.scrollView}>
         <View style={{ display: 'flex' }}>
