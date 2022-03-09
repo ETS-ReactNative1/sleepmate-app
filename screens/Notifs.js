@@ -4,6 +4,7 @@ import { Searchbar, TextInput } from 'react-native-paper'
 import { styles } from '../components/Styles'
 import Header from '../components/Header'
 import { LinearGradient } from 'expo-linear-gradient'
+import IconButton from '../components/IconButton'
 import ChatBubbleOther from '../components/ChatBubbleOther'
 import ChatBubbleResponse from '../components/ChatBubbleResponse'
 import ChatBubbleResponseAll from '../components/ChatBubbleResponseAll'
@@ -11,9 +12,20 @@ import ChatBubbleResponseAll from '../components/ChatBubbleResponseAll'
 const Notifs = () => {
   const [searchQuery, setSearchQuery] = useState('')
   const [messageText, setMessageText] = useState('')
+  const [showPrivateMsg, setShowPrivateMsg] = useState(false)
+  const [showGeneralMsg, setShowGeneralMsg] = useState(false)
 
   const onChangeSearch = query => setSearchQuery(query)
   const onChangeMessage = text => setMessageText(text)
+
+  const sendMessage = () => {
+    if (searchQuery !== '' && messageText !== '') {
+      setShowPrivateMsg(true)
+    } else {
+      setShowGeneralMsg(true)
+    }
+    setMessageText('')
+  }
 
   return (
     <LinearGradient
@@ -26,10 +38,10 @@ const Notifs = () => {
         leftPage='Home'
       />
       <Searchbar
-        style={styles.searchBar}
+        style={{ elevation: 0, width: '90%', height: 40, borderRadius: 10, marginBottom: 16, backgroundColor: 'rgba(144, 172, 200, 0.3)' }}
         placeholder="Search"
         iconColor='#f7f7f7'
-        theme={{ colors: { text: '#f7f7f7' } }}
+        theme={{ colors: { placeholder: '#f7f7f7', text: '#f7f7f7' } }}
         onChangeText={onChangeSearch}
       />
       <ScrollView style={styles.scrollView}>
@@ -39,9 +51,7 @@ const Notifs = () => {
             image={require('../images/derek.jpg')}
             text='I have a very important interview tomorrow. Please try to keep the noise down tonight. Thanks!'
           />
-          {searchQuery !== '' && messageText !== '' ? <ChatBubbleResponse
-            text='Got it. Thanks for lmk!'
-          /> : null}
+          {showPrivateMsg ? <ChatBubbleResponse text='Got it. Thanks for lmk!' /> : null}
           {searchQuery === '' ? <ChatBubbleOther
             name='Michelle X.'
             image={require('../images/michelle.jpg')}
@@ -52,16 +62,25 @@ const Notifs = () => {
             image={require('../images/sleep.png')}
             text='Emily Y. has accepted the request to join the household!'
           /> : null}
-          {searchQuery === '' && messageText !== '' ? <ChatBubbleResponseAll
-            text='Hi! How&#39;s it going?'
-          /> : null}
+          {showGeneralMsg ? <ChatBubbleResponseAll text='Hi!' /> : null}
         </View>
       </ScrollView>
-      <TextInput
-        style={styles.textInput}
-        label='Type a message...'
-        onChangeText={onChangeMessage}
-      />
+      <View style={{ width: '90%', display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
+        <TextInput
+          mode='outlined'
+          style={{ elevation: 0, width: '80%', height: 40, backgroundColor: 'rgba(144, 172, 200, 0.3)' }}
+          label='Type a message'
+          iconColor='#f7f7f7'
+          outlineColor='transparent'
+          activeOutlineColor='transparent'
+          theme={{ colors: { placeholder: '#f7f7f7', text: '#f7f7f7' } }}
+          onChangeText={onChangeMessage}
+        />
+        <IconButton
+          iconName='send-outline'
+          onPress={sendMessage}
+        />
+      </View>
     </LinearGradient>
   )
 }
