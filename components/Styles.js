@@ -216,7 +216,7 @@ const chatBubbles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'column',
     width: '75%',
-    marginLeft: 20,
+    marginLeft: 16,
     marginBottom: 16
   },
   name: {
