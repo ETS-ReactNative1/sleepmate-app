@@ -149,7 +149,7 @@ const displayFields = StyleSheet.create({
     width: '90%',
     borderRadius: 10,
     marginBottom: 16,
-    padding: 16
+    padding: 10
   }
 })
 

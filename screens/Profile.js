@@ -9,10 +9,15 @@ import DisplayButton from '../components/DisplayButton'
 
 const Profile = ({ route, navigation }) => {
   console.log(route);
+  let sleepQualityNotSpecified = route === undefined || !('params' in route) || route['params'] === undefined || !('sleep_quality' in route['params']) || route['params']['sleep_quality'] === null;
+  let sleepQuality = null;
+  if (!sleepQualityNotSpecified) {
+    sleepQuality = route['params']['sleep_quality'];
+  }
   let sleepQualityText =
     <DisplayField
       name='Sleep Quality'
-      desc={route === undefined || !('params' in route) || route['params'] === undefined || !('sleep_quality' in route['params']) || route['params']['sleep_quality'] === null ? 'Not Specified' : route['params']['sleep_quality']}
+      desc={sleepQualityNotSpecified ? 'Not Specified' : sleepQuality}
     />;
   let notificationsOff = false;
   let notifyTime = '';
@@ -24,7 +29,7 @@ const Profile = ({ route, navigation }) => {
   let notifyAfterText =
     <DisplayField
       name='Notify After'
-      desc={notificationsOff ? 'Not Specified' : route['params']['notify_after']}
+      desc={notificationsOff ? 'Not Specified' : notifyTime}
     />;
   
   
@@ -78,7 +83,7 @@ const Profile = ({ route, navigation }) => {
           {notifyAfterText}
           <DisplayButton
             name='Edit Preferences'
-            onPress={() => navigation.navigate('ProfileEdit', {notificationsOff, notifyTime})}
+            onPress={() => navigation.navigate('ProfileEdit', {sleepQualityNotSpecified, sleepQuality, notificationsOff, notifyTime})}
           />
         </View>
       </ScrollView>

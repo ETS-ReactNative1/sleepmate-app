@@ -9,7 +9,7 @@ import DropDownPicker from 'react-native-dropdown-picker'
 
 const ProfileEdit = ({ route, navigation }) => {
   const [sleepOpen, setSleepOpen] = useState(false)
-  const [sleepValue, setSleepValue] = useState(null)
+  const [sleepValue, setSleepValue] = useState(route['params']['sleepQuality'])
   const [sleepItems, setSleepItems] = useState([
     { label: 'Light Sleeper', value: 'Light Sleeper' },
     { label: 'Moderate Sleeper', value: 'Moderate Sleeper' },
@@ -24,7 +24,9 @@ const ProfileEdit = ({ route, navigation }) => {
     { label: '60 Minutes', value: '60 Minutes' }
   ])
 
-  let notifyPicker = <DropDownPicker
+  let notifyPicker = <React.Fragment>
+    <Text style={[styles.subtitle, { marginTop: 0, marginBottom: 8, width: '88%', alignSelf: 'center' }]}>Notify After</Text>
+    <DropDownPicker
     open={notifyOpen}
     value={notifyValue}
     items={notifyItems}
@@ -42,7 +44,7 @@ const ProfileEdit = ({ route, navigation }) => {
       borderColor: 'transparent',
     }}
     dropDownContainerStyle={{
-      backgroundColor: 'rgba(144, 172, 200, 0.25)',
+      backgroundColor: 'rgba(144, 172, 200, 0.9)',
       borderColor: 'transparent'
     }}
     textStyle={{
@@ -59,7 +61,7 @@ const ProfileEdit = ({ route, navigation }) => {
     }}
     arrowStyle={{ color: '#f7f7f7' }}
     listMode="SCROLLVIEW"
-  />;
+  /></React.Fragment>;
 
   const [isEnabled, setIsEnabled] = useState(!route['params']['notificationsOff']);
   const toggleSwitch = () => {
@@ -108,6 +110,7 @@ const ProfileEdit = ({ route, navigation }) => {
           }}>
             ID: 0
           </Text>
+          <Text style={[styles.subtitle, {marginTop: 0, marginBottom: 8, width: '88%', alignSelf: 'center'}]}>Sleep Quality</Text>
           <DropDownPicker
             open={sleepOpen}
             value={sleepValue}
@@ -126,7 +129,7 @@ const ProfileEdit = ({ route, navigation }) => {
               borderColor: 'transparent',
             }}
             dropDownContainerStyle={{
-              backgroundColor: 'rgba(144, 172, 200, 0.25)',
+              backgroundColor: 'rgba(144, 172, 200, 0.9)',
               borderColor: 'transparent'
             }}
             textStyle={{
