@@ -69,7 +69,7 @@ export default class Roomies extends React.Component {
     if (!this.state.editMode) {
       Animated.parallel([
         Animated.timing(this.state.controlOpacity, { toValue: 1, duration: 300, useNativeDriver: true }),
-        Animated.timing(this.state.controlWidth, { toValue: 1, duration: 300, easing: Easing.linear, useNativeDriver: true })
+        Animated.timing(this.state.controlWidth, { toValue: 0.78, duration: 300, easing: Easing.linear, useNativeDriver: true })
       ]).start();
     } else {
       Animated.parallel([
@@ -91,7 +91,7 @@ export default class Roomies extends React.Component {
         colors={['rgba(0, 51, 102, 1)', 'rgba(41, 43, 44, 1)']}
         style={styles.container}>
         <View style={styles.headerContainer}>
-          <EditButton name='Edit' onPress={() => this.toggleEditMode()} />
+          <IconButton iconName='ellipsis-vertical-circle-outline' onPress={() => this.toggleEditMode()} />
           <Text style={styles.smallTitle}>ROOMMATES</Text>
           <IconButton iconName='add-circle-outline' onPress={() => { console.log(1) }} />
         </View>
@@ -101,7 +101,7 @@ export default class Roomies extends React.Component {
               <Animated.View key={`minus-container-${id}`} style={{
                 opacity: this.state.controlOpacity,
                 transform: [{
-                  translateX: this.state.controlWidth.interpolate({inputRange: [0, 1], outputRange: [-72, 0]})
+                  translateX: this.state.controlWidth.interpolate({ inputRange: [0, 1], outputRange: [-72, 0] })
                 }],
               }}>
                 <IconButton iconName='remove-circle-outline' onPress={() => createRemoveDialogue({ id, first_name, middle_name, last_name, onRemove: this.getData.bind(this), editMode: this.toggleEditMode.bind(this) })} />
@@ -109,8 +109,8 @@ export default class Roomies extends React.Component {
               {IMAGES.filter(item => item.name === profile_pic).map(({ name, link }) => (
                 <Animated.View key={`contact-container-${id}`} style={{
                   transform: [{
-                      translateX: this.state.controlWidth.interpolate({ inputRange: [0, 1], outputRange: [-72, 0.05 * width]})
-                    }
+                    translateX: this.state.controlWidth.interpolate({ inputRange: [0, 1], outputRange: [-72, 0.05 * width] })
+                  }
                   ],
                 }}>
                   <ContactButton
