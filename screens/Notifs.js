@@ -8,9 +8,19 @@ import IconButton from '../components/IconButton'
 import ChatBubbleOther from '../components/ChatBubbleOther'
 import ChatBubbleResponse from '../components/ChatBubbleResponse'
 import ChatBubbleResponseAll from '../components/ChatBubbleResponseAll'
+import { useDispatch } from 'react-redux'
+import * as Actions from '../redux/actions'
 
-const Notifs = ({ route, navigation }) => {
-  console.log(route);
+const Notifs = (props) => {
+  const dispatch = useDispatch();
+
+  try {
+    dispatch(Actions.clearNotifications());
+  } catch (error) {
+    throw error;
+  }
+
+
   const [searchQuery, setSearchQuery] = useState('')
   const [messageText, setMessageText] = useState('')
   const [showPrivateMsg, setShowPrivateMsg] = useState(false)
