@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { ScrollView, View } from 'react-native'
 import { Searchbar, TextInput } from 'react-native-paper'
 import { styles } from '../components/Styles'
@@ -11,14 +11,20 @@ import ChatBubbleResponseAll from '../components/ChatBubbleResponseAll'
 import { useDispatch } from 'react-redux'
 import * as Actions from '../redux/actions'
 
-const Notifs = (props) => {
+const Notifs = ({ route, navigation }) => {
   const dispatch = useDispatch();
+  useEffect(() => {
+    const unsubscribe = navigation.addListener('focus', () => {
+      try {
+        console.log('clearing');
+        dispatch(Actions.clearNotifications());
+      } catch (error) {
+        throw error;
+      }
+    });
 
-  try {
-    dispatch(Actions.clearNotifications());
-  } catch (error) {
-    throw error;
-  }
+    return unsubscribe;
+  }, [navigation]);
 
 
   const [searchQuery, setSearchQuery] = useState('')

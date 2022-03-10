@@ -5,8 +5,25 @@ import Header from '../components/Header'
 import { LinearGradient } from 'expo-linear-gradient'
 import BorderedPic from '../components/BorderedPic'
 import DisplayField from '../components/DisplayField'
+import DisplayButton from '../components/DisplayButton'
+import { useDispatch } from 'react-redux'
+import { openDatabase, updateItem } from '../utils/database-utils'
+import * as Actions from '../redux/actions'
+
 
 const RoomieInfo = (props) => {
+  const dispatch = useDispatch();
+  const database = openDatabase('Profiles.db');
+  const simulateAcceptRequest = (props) => {
+    updateItem(database, 'Profiles', 'friendship_status="friended"', `id=${props['route']['params']['id']}`);
+    try {
+      dispatch(Actions.incrementNotifications());
+    } catch (error) {
+      throw error;
+    }
+    props.navigation.navigate('Roomies');
+  }
+
   console.log(props['route']);
   let displayField =
     <React.Fragment>
@@ -22,6 +39,10 @@ const RoomieInfo = (props) => {
       }}>
         Username: {props['route']['params']['username']}
       </Text>
+      <DisplayButton
+        name="Simulate user accepting request"
+        onPress={() => simulateAcceptRequest(props)}
+      />
     </React.Fragment>;
   if (props['route']['params']['friendship_status'] === 'friended') {
     displayField =
