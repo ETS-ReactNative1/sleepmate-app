@@ -8,7 +8,6 @@ import BorderedPic from '../components/BorderedPic'
 import DisplayButton from '../components/DisplayButton'
 
 const Profile = ({ route, navigation }) => {
-  console.log(route);
   let sleepQualityNotSpecified = route === undefined || !('params' in route) || route['params'] === undefined || !('sleep_quality' in route['params']) || route['params']['sleep_quality'] === null;
   let sleepQuality = null;
   if (!sleepQualityNotSpecified) {

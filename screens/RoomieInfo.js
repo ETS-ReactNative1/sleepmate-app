@@ -24,7 +24,6 @@ const RoomieInfo = (props) => {
     props.navigation.navigate('Roomies');
   }
 
-  console.log(props['route']);
   let displayField =
     <React.Fragment>
       <Text style={{

@@ -67,7 +67,6 @@ const ProfileEdit = ({ route, navigation }) => {
   const toggleSwitch = () => {
     setIsEnabled(previousState => !previousState);
     if (isEnabled) {
-      console.log(1);
       setNotifyValue(null);
     }
   };

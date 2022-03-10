@@ -71,7 +71,6 @@ export default class Roomies extends React.Component {
         }
       );
     });
-    console.log(this.state.data);
   }
 
   toggleEditMode() {

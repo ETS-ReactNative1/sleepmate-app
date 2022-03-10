@@ -82,24 +82,19 @@ function getProfilesDatabase() {
   deleteItem(profilesDB, 'Profiles', 'id=3');
   deleteItem(profilesDB, 'Profiles', 'id=4');
   deleteItem(profilesDB, 'Profiles', 'id=5');
+  deleteItem(profilesDB, 'Profiles', 'id=6');
   insertItem(profilesDB, 'Profiles', 'id, first_name, last_name, profile_pic, friendship_status, sleeping_status, username', '1, "Aaron", "Han", "aaron.jpg", "friended", "sleeping", "ahan"',
     "where not exists(select 1 from Profiles where id = 1)");
   insertItem(profilesDB, 'Profiles', 'id, first_name, last_name, profile_pic, friendship_status, sleep_quality, username', '2, "Derek", "Chung", "derek.jpg", "friended", "Heavy Sleeper", "dchung"',
     "where not exists(select 1 from Profiles where id = 2)");
   insertItem(profilesDB, 'Profiles', 'id, first_name, last_name, profile_pic, friendship_status, average_bedtime, average_wakeup, username', '3, "Michelle", "Xu", "michelle.jpg", "friended", "12:00 AM", "9:00 AM", "mxu"',
     "where not exists(select 1 from Profiles where id = 3)");
-  insertItem(profilesDB, 'Profiles', 'id, first_name, last_name, username', '4, "Not", "Friend", "not_friend"',
+  insertItem(profilesDB, 'Profiles', 'id, first_name, last_name, profile_pic, friendship_status, join_year, join_month, username', '4, "Emily", "Yang", "emily.jpg", "friended", 2021, "December", "eyang"',
     "where not exists(select 1 from Profiles where id = 4)");
-  insertItem(profilesDB, 'Profiles', 'id, first_name, middle_name, last_name, friendship_status, username', '5, "Has", "No", "Friends", "pending", "pending_friend"',
+  insertItem(profilesDB, 'Profiles', 'id, first_name, last_name, username', '5, "Not", "Friend", "not_friend"',
     "where not exists(select 1 from Profiles where id = 5)");
-  profilesDB.transaction((tx) => {
-    tx.executeSql(
-      `select * from Profiles`,
-      null,
-      (_, { rows }) => console.log(JSON.stringify(rows))
-    );
-  });
-  
+  insertItem(profilesDB, 'Profiles', 'id, first_name, middle_name, last_name, friendship_status, username', '6, "Has", "No", "Friends", "pending", "pending_friend"',
+    "where not exists(select 1 from Profiles where id = 6)");
 }
 
 export { openDatabase, getProfilesDatabase, updateItem }

@@ -16,7 +16,6 @@ const Notifs = ({ route, navigation }) => {
   useEffect(() => {
     const unsubscribe = navigation.addListener('focus', () => {
       try {
-        console.log('clearing');
         dispatch(Actions.clearNotifications());
       } catch (error) {
         throw error;
@@ -43,7 +42,7 @@ const Notifs = ({ route, navigation }) => {
     }
     setMessageText('')
   }
-
+  
   return (
     <LinearGradient
       colors={['rgba(0, 51, 102, 1)', 'rgba(41, 43, 44, 1)']}
@@ -86,7 +85,7 @@ const Notifs = ({ route, navigation }) => {
         <TextInput
           mode='outlined'
           style={{ elevation: 0, width: '80%', height: 40, backgroundColor: 'rgba(144, 172, 200, 0.3)' }}
-          label='Type a message'
+          placeholder='Type a message'
           iconColor='#f7f7f7'
           outlineColor='transparent'
           activeOutlineColor='transparent'

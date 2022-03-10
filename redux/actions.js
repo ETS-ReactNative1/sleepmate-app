@@ -7,9 +7,7 @@ export const incrementNotifications = () => {
       dispatch({
         type: INCREMENT,
       });
-      console.log(getState);
     } catch (error) {
-      console.log(error);
       throw error;
     }
   };
@@ -20,9 +18,7 @@ export const clearNotifications = () => {
       dispatch({
         type: RESET,
       });
-      console.log(getState);
     } catch (error) {
-      console.log(error);
       throw error;
     }
   };
