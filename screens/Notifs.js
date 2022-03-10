@@ -115,13 +115,13 @@ class Notifs extends React.Component {
         <ScrollView style={styles.scrollView}>
           <View style={{ display: 'flex' }}>
             <ChatBubbleOther
-              name='Derek C.'
+              name='Derek Chung'
               image={require('../images/derek.jpg')}
               text='I have a very important interview tomorrow. Please try to keep the noise down tonight. Thanks!'
             />
             {this.state.showPrivateMsg && this.state.hitEnterPrivate ? <ChatBubbleResponse text='Got it. Thanks for lmk!' /> : null}
             {this.state.searchQuery === '' ? <ChatBubbleOther
-              name='Michelle X.'
+              name='Michelle Xu'
               image={require('../images/michelle.jpg')}
               text='Going to be out travelling all of next week.'
             /> : null}
@@ -132,7 +132,7 @@ class Notifs extends React.Component {
                     key={id}
                     name='Sleepmate'
                     image={require('../images/sleep.png')}
-                    text={status === "accepted" ? `${name} has accepted the invitation to join the household.` : `${name} has left the household.`}
+                    text={status === "accepted" ? `${name} has accepted the invitation to join the household.` : `${name} has been removed from the household.`}
                   />
                 ))
               ) : null

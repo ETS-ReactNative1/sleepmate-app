@@ -7,15 +7,18 @@ import BorderedPic from '../components/BorderedPic'
 import DisplayField from '../components/DisplayField'
 import DisplayButton from '../components/DisplayButton'
 import { useDispatch } from 'react-redux'
-import { openDatabase, updateItem } from '../utils/database-utils'
+import { openDatabase, updateItem, insertItem } from '../utils/database-utils'
 import * as Actions from '../redux/actions'
 
 
 const RoomieInfo = (props) => {
   const dispatch = useDispatch();
   const database = openDatabase('Profiles.db');
+  const notificationsDatabase = openDatabase('Notifications.db');
   const simulateAcceptRequest = (props) => {
     updateItem(database, 'Profiles', 'friendship_status="friended"', `id=${props['route']['params']['id']}`);
+    let name = `${props['route']['params']['first_name']} ` + (props['route']['params']['middle_name'] === '' ? '' : props['route']['params']['middle_name'] + ' ') + `${props['route']['params']['last_name']}`;
+    insertItem(notificationsDatabase, 'Notifications', 'name, status', `"${name}", "accepted"`);
     try {
       dispatch(Actions.incrementNotifications());
     } catch (error) {

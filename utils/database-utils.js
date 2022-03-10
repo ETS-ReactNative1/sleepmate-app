@@ -107,6 +107,6 @@ function getProfilesDatabase() {
     "where not exists(select 1 from Profiles where id = 6)");
 }
 
-export { openDatabase, getProfilesDatabase, getNotificationDatabase, updateItem }
+export { openDatabase, getProfilesDatabase, getNotificationDatabase, insertItem, updateItem }
 
 

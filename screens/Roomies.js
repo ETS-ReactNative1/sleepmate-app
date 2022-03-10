@@ -3,12 +3,14 @@ import { contactButtons, styles, removeAnimation, iconButtons } from '../compone
 import { LinearGradient } from 'expo-linear-gradient'
 import { Text, View, Dimensions, Animated, Alert, Easing, ScrollView } from 'react-native'
 import ContactButton from '../components/ContactButton'
-import { openDatabase, updateItem } from '../utils/database-utils'
+import { openDatabase, updateItem, insertItem } from '../utils/database-utils'
 import IconButton from '../components/IconButton'
 import { IMAGES } from '../constants/image constants'
+import { incrementNotifications } from '../redux/actions'
+import { connect } from 'react-redux'
 
 let database = openDatabase('Profiles.db');
-
+let notificationsDatabase = openDatabase('Notifications.db')
 function createRemoveDialogue(props) {
   let name = `${props['first_name']} ` + (props['middle_name'] === '' ? '' : props['middle_name'] + ' ') + `${props['last_name']}`;
   Alert.alert(`Remove ${name}?`,
@@ -22,6 +24,8 @@ function createRemoveDialogue(props) {
       {
         text: "OK", onPress: () => {
           updateItem(database, 'Profiles', 'friendship_status="unfriended"', `id=${props['id']}`);
+          insertItem(notificationsDatabase, 'Notifications', 'name, status', `"${name}", "unfriended"`, '');
+          props['addNotification']();
           props['editMode']();
           props['onRemove']();
         }
@@ -30,7 +34,7 @@ function createRemoveDialogue(props) {
   )
 }
 
-export default class Roomies extends React.Component {
+class Roomies extends React.Component {
   constructor(props) {
     super(props);
 
@@ -43,6 +47,14 @@ export default class Roomies extends React.Component {
     }
     this.state.controlOpacity.addListener(({ value }) => this._value = value);
     this.state.controlWidth.addListener(({ value }) => this._value = value);
+  }
+
+  addNotification() {
+    try {
+      this.props.incrementNotifications();
+    } catch (error) {
+      throw error;
+    }
   }
 
   componentDidMount() {
@@ -113,7 +125,7 @@ export default class Roomies extends React.Component {
                   translateX: this.state.controlWidth.interpolate({ inputRange: [0, 1], outputRange: [-72, 0] })
                 }],
               }}>
-                <IconButton iconName='remove-circle-outline' onPress={() => createRemoveDialogue({ id, first_name, middle_name, last_name, onRemove: this.getData.bind(this), editMode: this.toggleEditMode.bind(this) })} />
+                <IconButton iconName='remove-circle-outline' onPress={() => createRemoveDialogue({ id, first_name, middle_name, last_name, onRemove: this.getData.bind(this), editMode: this.toggleEditMode.bind(this), addNotification: this.addNotification.bind(this) })} />
               </Animated.View>
               {IMAGES.filter(item => item.name === profile_pic).map(({ name, link }) => (
                 <Animated.View key={`contact-container-${id}`} style={{
@@ -144,7 +156,7 @@ export default class Roomies extends React.Component {
     );
   }
 }
-
+export default connect(null, { incrementNotifications })(Roomies)
 /*
  *
 const Roomies = ({ navigation }) => {
