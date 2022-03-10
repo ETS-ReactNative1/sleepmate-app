@@ -61,6 +61,16 @@ function updateItem(database, table, new_values, constraints) {
   );
 }
 
+function getNotificationDatabase() {
+  var notificationsDB = openDatabase('Notifications.db');
+  deleteDatabaseTable(notificationsDB, 'Notifications');
+  initializeDatabaseTable(notificationsDB, 'Notifications', 'id integer primary key not null,' +
+    'name text not null,' +
+    'status text not null');
+  deleteItem(notificationsDB, 'Notifications', 'id=1');
+  insertItem(notificationsDB, 'Notifications', 'id, name, status', '1, "Emily Yang", "accepted"');
+}
+
 function getProfilesDatabase() {
   var profilesDB = openDatabase('Profiles.db');
   deleteDatabaseTable(profilesDB, 'Profiles');
@@ -97,6 +107,6 @@ function getProfilesDatabase() {
     "where not exists(select 1 from Profiles where id = 6)");
 }
 
-export { openDatabase, getProfilesDatabase, updateItem }
+export { openDatabase, getProfilesDatabase, getNotificationDatabase, updateItem }
 
 
