@@ -118,7 +118,8 @@ export default function App() {
           tabBarLabelStyle: {
             fontSize: 12,
             marginBottom: 18
-          }
+          },
+          tabBarHideOnKeyboard: true,
         })}
       >
         <Tab.Screen

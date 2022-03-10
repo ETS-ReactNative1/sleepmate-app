@@ -9,7 +9,8 @@ import ChatBubbleOther from '../components/ChatBubbleOther'
 import ChatBubbleResponse from '../components/ChatBubbleResponse'
 import ChatBubbleResponseAll from '../components/ChatBubbleResponseAll'
 
-const Notifs = () => {
+const Notifs = ({ route, navigation }) => {
+  console.log(route);
   const [searchQuery, setSearchQuery] = useState('')
   const [messageText, setMessageText] = useState('')
   const [showPrivateMsg, setShowPrivateMsg] = useState(false)
@@ -38,7 +39,7 @@ const Notifs = () => {
         leftPage='Home'
       />
       <Searchbar
-        style={{ elevation: 0, width: '90%', height: 40, borderRadius: 10, marginBottom: 16, backgroundColor: 'rgba(144, 172, 200, 0.3)' }}
+        style={styles.searchBar}
         placeholder="Search"
         iconColor='#f7f7f7'
         theme={{ colors: { placeholder: '#f7f7f7', text: '#f7f7f7' } }}

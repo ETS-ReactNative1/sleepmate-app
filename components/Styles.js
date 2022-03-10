@@ -103,6 +103,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around'
   },
   searchBar: {
+    elevation: 0, 
     width: '90%',
     height: 40,
     borderRadius: 10,
@@ -273,15 +274,4 @@ const removeAnimation = StyleSheet.create({
   }
 })
 
-const searchBar = StyleSheet.create({
-  containerStyle: {
-    backgroundColor: 'rgba(0, 0, 0, 0)',
-    width: '90%',
-    borderBottomColor: 'transparent',
-    borderTopColor: 'transparent'
-  },
-  inputContainerStyle: {
-    backgroundColor: 'rgba(144, 172, 200, 0.25)'
-  }
-})
-export { styles, solidButtons, fillButtons, iconButtons, contactButtons, borderedPics, displayFields, displayButtons, editButton, chatBubbles, removeAnimation, searchBar }
+export { styles, solidButtons, fillButtons, iconButtons, contactButtons, borderedPics, displayFields, displayButtons, editButton, chatBubbles, removeAnimation }

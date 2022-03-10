@@ -4,11 +4,10 @@ import { LinearGradient } from 'expo-linear-gradient'
 import { Text, View, Dimensions, Animated, Alert, Easing, ScrollView } from 'react-native'
 import ContactButton from '../components/ContactButton'
 import { openDatabase, updateItem } from '../utils/database-utils'
-import EditButton from '../components/EditButton'
 import IconButton from '../components/IconButton'
 import { IMAGES } from '../constants/image constants'
 
-const database = openDatabase('Profiles.db');
+let database = openDatabase('Profiles.db');
 
 function createRemoveDialogue(props) {
   let name = `${props['first_name']} ` + (props['middle_name'] === '' ? '' : props['middle_name'] + ' ') + `${props['last_name']}`;
@@ -48,6 +47,16 @@ export default class Roomies extends React.Component {
 
   componentDidMount() {
     this.getData();
+    this.willFocusSubscription = this.props.navigation.addListener(
+      'focus',
+      () => {
+        this.getData();
+      }
+    );
+  }
+
+  componentWillUnmount() {
+    this.willFocusSubscription();
   }
 
   getData() {
@@ -62,7 +71,7 @@ export default class Roomies extends React.Component {
         }
       );
     });
-
+    console.log(this.state.data);
   }
 
   toggleEditMode() {
