@@ -14,7 +14,7 @@ In order to run the application, please do the following.
 ### Hardcoded Elements
 - On the “Roomies” page, we hard-coded the various roommate profiles (Derek Chung, Aaron Han, Michelle Xu, Emily Yang, Has No Friends) that can be added or deleted.
   - A list of profiles and their usernames are here:
-    - Derek Chung, username: dchung22
+    - Derek Chung, username: dchung
     - Aaron Han, username: ahan
     - Michelle Xu, username: mxu
     - Emily Yang, username: eyang
