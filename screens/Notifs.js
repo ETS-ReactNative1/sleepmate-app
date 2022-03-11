@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { ScrollView, View } from 'react-native'
+import { ScrollView, View, Keyboard } from 'react-native'
 import { Searchbar, TextInput } from 'react-native-paper'
 import { styles } from '../components/Styles'
 import Header from '../components/Header'
@@ -150,12 +150,17 @@ class Notifs extends React.Component {
             activeOutlineColor='transparent'
             theme={{ colors: { placeholder: '#f7f7f7', text: '#f7f7f7' } }}
             onChangeText={(message) => this.setMessage(message)}
+            value={this.state.message}
             onSubmitEditing={(event) => {
               if (this.state.searchQuery === '') {
                 this.setEnterGeneral();
               } else {
                 this.setEnterPrivate();
               }
+              this.setState({
+                message: ''
+              });
+              Keyboard.dismiss();
             }}
           />
           <IconButton
@@ -166,6 +171,10 @@ class Notifs extends React.Component {
               } else {
                 this.setEnterPrivate();
               }
+              this.setState({
+                message: ''
+              });
+              Keyboard.dismiss();
             }}
           />
         </View>
