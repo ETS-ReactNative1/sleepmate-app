@@ -86,7 +86,6 @@ const Tab = createBottomTabNavigator()
 
 const AppNavigator = (props) => {
   const unreadNotifications = useSelector((state) => state.notificationCount);
-  console.log(unreadNotifications > 0);
   return (
     <NavigationContainer theme={DarkTheme}>
       <Tab.Navigator

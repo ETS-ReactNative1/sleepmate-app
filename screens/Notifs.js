@@ -65,7 +65,6 @@ class Notifs extends React.Component {
         }
       );
     });
-    console.log(this.state.data);
   }
 
   setSearch(query) {

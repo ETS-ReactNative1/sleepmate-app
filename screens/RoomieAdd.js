@@ -58,7 +58,6 @@ export default class RoomieAdd extends React.Component {
         `select * from Profiles where username="${this.state.searchQuery}" and friendship_status="unfriended"`,
         null,
         (_, { rows: { _array } }) => {
-          console.log(_array);
           this.setState({
             data: _array
           })
@@ -83,8 +82,6 @@ export default class RoomieAdd extends React.Component {
                 style={{ flex: 1 }}
                 size={75}
                 name={`${first_name} ` + (middle_name === '' ? '' : middle_name + ' ') + `${last_name}` + (friendship_status === 'pending' ? ' (Pending)' : (sleeping_status === 'sleeping' ? ' (Sleeping)' : ''))}
-                onPress={() =>
-                  console.log(1)}
                 onPressIcon={() => createAddDialogue({id, first_name, middle_name, last_name, username, navigateBack: this.navigateBack.bind(this)})}
               />
             )

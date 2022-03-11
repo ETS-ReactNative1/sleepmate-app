@@ -28,7 +28,7 @@ function deleteDatabaseTable(database, table) {
     tx.executeSql(
       `drop table ${table};`, [],
       (tx, results) => {
-        console.log(1);
+        console.log("refreshed tables");
       },
       (tx, error) => {
         console.log(error);
