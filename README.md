@@ -1,5 +1,4 @@
 # SLEEPMATE
-High-Fidelity Prototype README
 
 ### Software Used
 Our high-fidelity prototype was built using React Native and Expo. Development and testing for the prototype was conducted via Xcode’s iOS simulator. In particular, our application is optimized for iPhone X.
